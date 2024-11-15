@@ -1,25 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import { FaBox, FaUsers, FaShoppingBag } from 'react-icons/fa';
-import { getProducts, getOrders, getUsers } from '../../api/api';
+import { getBikes, getOrders, getUsers } from '../../api/api';
 
 const AdminDashboardCards = () => {
-  const [productCount, setProductCount] = useState(0);
+  const [bikeCount, setBikeCount] = useState(0);
   const [customerCount, setCustomerCount] = useState(0);
   const [orderCount, setOrderCount] = useState(0);
   const [error, setError] = useState(null);
 
-  // Fetch counts for products, customers, and orders
+  // Fetch counts for bikes, customers, and orders
   useEffect(() => {
     const fetchCounts = async () => {
       try {
-        const [productRes, customerRes, orderRes] = await Promise.all([
-          getProducts(),
+        const [bikeRes, customerRes, orderRes] = await Promise.all([
+          getBikes(),
           getUsers(),
           getOrders()
         ]);
 
         // Set counts based on response data lengths
-        setProductCount(productRes.data.length || 0);
+        setBikeCount(bikeRes.data.length || 0);
         setCustomerCount(customerRes.data.length || 0);
         setOrderCount(orderRes.data.length || 0);
       } catch (err) {
@@ -37,7 +37,7 @@ const AdminDashboardCards = () => {
         <p className="text-red-500">{error}</p>
       ) : (
         [
-          { icon: <FaBox className='h-8 w-8 mr-2 text-black group-hover:text-white duration-300' />, title: "Products", count: productCount, bgColor: "bg-blue-200" },
+          { icon: <FaBox className='h-8 w-8 mr-2 text-black group-hover:text-white duration-300' />, title: "Bikes", count: bikeCount, bgColor: "bg-blue-200" },
           { icon: <FaUsers className='h-8 w-8 mr-2 text-black group-hover:text-white duration-300' />, title: "Customers", count: customerCount, bgColor: "bg-green-200" },
           { icon: <FaShoppingBag className='h-8 w-8 mr-2 text-black group-hover:text-white duration-300' />, title: "Orders", count: orderCount, bgColor: "bg-yellow-200" },
         ].map((card, index) => (

@@ -1,19 +1,29 @@
-const express = require('express')
-const app = express()
-const cors = require('cors')
-const port = 3000
-app.use(cors())
-app.use(express.json())
+const express = require('express');
+const app = express();
+const cors = require('cors');
+const port = 3000;
 
-const db = require('./config/db')
-const Products = require('./routes/ProductRoute')
-const Users = require('./routes/UserRoute')
-const Orders = require('./routes/OrderRoute')
-const Auth = require('./routes/AuthRoute')
-app.get('/', (req, res) => res.status(200).json({ message: "Welcome" }))
-app.use('/products', Products)
-app.use('/users', Users)
-app.use('/orders', Orders)
-app.use('/auth', Auth)
+// Middleware
+app.use(cors()); // Enable CORS for all origins (or restrict as necessary)
+app.use(express.json()); // To parse JSON request bodies
 
-app.listen(port, (() => console.log(`Listening on ${port}`)))
+// DB Connection
+const db = require('./config/db');  // Ensure this connects to your MongoDB correctly
+
+// Route imports
+const Products = require('./routes/BikesRoute');
+const Users = require('./routes/UserRoute');
+const Orders = require('./routes/OrderRoute');
+const Auth = require('./routes/AuthRoute');
+
+// Test route
+app.get('/', (req, res) => res.status(200).json({ message: "Welcome" }));
+
+// Use routes
+app.use('/bikes', Bikes);  // Products route
+app.use('/users', Users);        // Users route
+app.use('/orders', Orders);      // Orders route
+app.use('/auth', Auth);          // Auth route
+
+// Start server
+app.listen(port, () => console.log(`Server is running on port ${port}`));
