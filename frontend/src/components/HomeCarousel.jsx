@@ -1,53 +1,31 @@
-import React, { useState, useEffect } from 'react';
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
 
 const HomeCarousel = () => {
-  // Array of image URLs
-  const images = [
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-u-MgRp0hunHIojwz6nApYWox0soxbFguWQ&s',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-u-MgRp0hunHIojwz6nApYWox0soxbFguWQ&s',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-u-MgRp0hunHIojwz6nApYWox0soxbFguWQ&s',
-    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-u-MgRp0hunHIojwz6nApYWox0soxbFguWQ&s',
-  ];
-
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000); // Change image every 3 seconds
-
-    return () => clearInterval(interval); // Cleanup on component unmount
-  }, [images.length]);
-
   return (
-    <div className="relative overflow-hidden w-full h-96">
-      <div
-        className="flex transition-transform duration-1000 ease-in-out"
-        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-      >
-        {images.map((image, index) => (
-          <img
-            key={index}
-            src={image}
-            alt={`Slide ${index + 1}`}
-            className="w-full h-full object-cover"
-          />
-        ))}
+    <>
+      <div className="mt-[-30px]"> {/* Adjusted to move up */}
+        <Carousel 
+          autoPlay 
+          infiniteLoop 
+          showThumbs={false} 
+          showStatus={false}
+          interval={2000} // Adjust interval for autoplay
+          transitionTime={1000} // Smooth transition
+        >
+          <div>
+            <img className="h-[85vh] object-cover" src="https://cdn.bajajauto.com/-/media/images/ktm/home-page/home-banners/ktm-home-banners/click-web.webp" />
+          </div>
+          <div>
+            <img className="h-[85vh] object-cover" src="https://www.royalenfield.com/content/dam/re-ev/flying-flea-ev-desktop.jpg" />
+          </div>
+          <div>
+            <img className="h-[85vh] object-cover" src="https://www.tvsmotor.com/-/media/HomeOptimizedImages/TVS-Home-Page-WebP/Desktop/TVS125_1366x600.webp" />
+          </div>
+        </Carousel>
       </div>
-
-      {/* Indicators */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-        {images.map((_, index) => (
-          <div
-            key={index}
-            className={`w-3 h-3 rounded-full ${
-              currentIndex === index ? 'bg-blue-500' : 'bg-gray-300'
-            }`}
-          />
-        ))}
-      </div>
-    </div>
+    </>
   );
-};
+}
 
 export default HomeCarousel;

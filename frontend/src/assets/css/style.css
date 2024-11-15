@@ -32,6 +32,9 @@ body{
 {
 	background-color: blueviolet;	
 }
+
+
+/* Add the following styles to your CSS file for animations */
 @keyframes bit {
     from {
         opacity: 0.3;
@@ -50,6 +53,8 @@ body{
     }
 }
 
+
+
 /* Ensure to include the following in your CSS file */
 .animate-loading {
     animation: loading 1s linear infinite;
@@ -58,3 +63,34 @@ body{
 .animate-bit {
     animation: bit 0.6s alternate infinite;
 }
+
+.scrolling-container {
+    margin-bottom: 0;
+    background-color: aquamarine;
+    width: 100vw; /* Full viewport width */
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+  }
+  
+  .scrolling-text {
+    display: inline-block;
+    padding-right: 50vw; /* Reduce the initial padding for quicker appearance */
+    animation: scroll 25s linear infinite; /* Decrease duration for faster looping */
+  }
+  /* Duplicate text for seamless scrolling */
+.scrolling-text:after {
+    content: attr(data-text); /* Duplicate the content */
+    padding-left: 50vw;
+  }
+
+  
+  @keyframes scroll {
+    0% {
+      transform: translateX(20%);
+    }
+    100% {
+      transform: translateX(-80%);
+    }
+  }
+  
