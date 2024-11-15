@@ -1,67 +1,52 @@
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from 'react-responsive-carousel';
+import React, { useState, useEffect } from 'react';
 
 const HomeCarousel = () => {
+  // Array of image URLs
+  const images = [
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-u-MgRp0hunHIojwz6nApYWox0soxbFguWQ&s',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-u-MgRp0hunHIojwz6nApYWox0soxbFguWQ&s',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-u-MgRp0hunHIojwz6nApYWox0soxbFguWQ&s',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-u-MgRp0hunHIojwz6nApYWox0soxbFguWQ&s',
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 3000); // Change image every 3 seconds
+
+    return () => clearInterval(interval); // Cleanup on component unmount
+  }, [images.length]);
+
   return (
-    <Carousel 
-      autoPlay 
-      infiniteLoop 
-      interval={3000} // Adjust time (in milliseconds) between slides
-      stopOnHover={true} 
-      showThumbs={false} 
-      showStatus={false}
-    >
-      {/* Mobiles Slide */}
-      <div className="relative">
-        <img
-          className="h-[50vh] md:h-[60vh] lg:h-[70vh] object-cover"
-          src="https://files.oaiusercontent.com/file-lW8gn5gJH7CDAKhjIDXMIP6d?se=2024-11-06T03%3A43%3A08Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D96c9f82d-1217-4ef1-ae53-1e6f86ca999b.webp&sig=/4jXWcFdgCCdOp9hxREJpKprgyaF7If7qDHaYbSEzZE%3D"
-          alt="Discounted Mobiles"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-        <div className="absolute left-4 bottom-4 flex flex-col bg-white/80 rounded-lg p-4 shadow-lg">
-          <h2 className="text-2xl font-bold text-purple-700 lg:text-3xl">Mobiles</h2>
-          <p className="mt-2 text-purple-600 font-bold text-5xl tracking-tight">
-            40%
-            <span className="text-lg font-medium text-gray-600 ml-2">offer</span>
-          </p>
-        </div>
+    <div className="relative overflow-hidden w-full h-96">
+      <div
+        className="flex transition-transform duration-1000 ease-in-out"
+        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+      >
+        {images.map((image, index) => (
+          <img
+            key={index}
+            src={image}
+            alt={`Slide ${index + 1}`}
+            className="w-full h-full object-cover"
+          />
+        ))}
       </div>
 
-      {/* Laptops Slide */}
-      <div className="relative">
-        <img
-          className="h-[50vh] md:h-[60vh] lg:h-[70vh] object-cover"
-          src="https://files.oaiusercontent.com/file-jqWsOmaElCUWmuuSYGVsyJpc?se=2024-11-06T03%3A46%3A06Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D579a66ce-bda3-4f8e-97c9-baad78b2a250.webp&sig=9rBRPrF8v%2BKwh47RBeqT8qaSX01L7LaK2hHrLGL099Q%3D"
-          alt="Discounted Laptops"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-        <div className="absolute left-4 bottom-4 flex flex-col bg-white/80 rounded-lg p-4 shadow-lg">
-          <h2 className="text-2xl font-bold text-purple-700 lg:text-3xl">Laptops</h2>
-          <p className="mt-2 text-purple-600 font-bold text-5xl tracking-tight">
-            30%
-            <span className="text-lg font-medium text-gray-600 ml-2">offer</span>
-          </p>
-        </div>
+      {/* Indicators */}
+      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+        {images.map((_, index) => (
+          <div
+            key={index}
+            className={`w-3 h-3 rounded-full ${
+              currentIndex === index ? 'bg-blue-500' : 'bg-gray-300'
+            }`}
+          />
+        ))}
       </div>
-
-      {/* Smart Watches Slide */}
-      <div className="relative">
-        <img
-          className="h-[50vh] md:h-[60vh] lg:h-[70vh] object-cover"
-          src="https://files.oaiusercontent.com/file-bqxJZIJoVBZoBzHuGRtTktmL?se=2024-11-10T03%3A21%3A33Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D5d8b535b-5f7c-46b6-b091-4e8afa98b12c.webp&sig=nuA82%2B3vz8Df%2BKjEy6Sq8yWUNJ1OhVc5fVIa48yOTIE%3D"
-          alt="Discounted Smart Watches"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-        <div className="absolute left-4 bottom-4 flex flex-col bg-white/80 rounded-lg p-4 shadow-lg">
-          <h2 className="text-2xl font-bold text-purple-700 lg:text-3xl">Watches</h2>
-          <p className="mt-2 text-purple-600 font-bold text-5xl tracking-tight">
-            50%
-            <span className="text-lg font-medium text-gray-600 ml-2">offer</span>
-          </p>
-        </div>
-      </div>
-    </Carousel>
+    </div>
   );
 };
 
