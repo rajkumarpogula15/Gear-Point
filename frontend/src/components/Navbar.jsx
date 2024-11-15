@@ -10,7 +10,7 @@ const Navbar = () => {
     const navigate = useNavigate(); // For navigation
 
     const Linksdata = [
-        { title: 'Bikes', path: '/products' },
+        { title: 'Bikes', path: '/bikes' },
         { title: 'Accessories', path: '/accessories' },
         { title: 'Reviews', path: '/reviews' },
         { title: 'About', path: '/about' },

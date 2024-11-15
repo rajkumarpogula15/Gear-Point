@@ -1,24 +1,24 @@
 import React, { useEffect, useState } from 'react';
-import ProductCard from '../components/ProductCard';
-import { getProducts } from '../api/api';
+import BikeCard from '../components/BikeCard'; // Updated import for the BikeCard component
+import { getBikes } from '../api/api'; // API function for fetching bikes
 import { Loader2, TriangleAlert } from 'lucide-react';
 import LoadingScreen from '../components/LoadingScreen';
 
-const Products = () => {
-    const [products, setProducts] = useState([]);
+const Bikes = () => {
+    const [bikes, setBikes] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
     useEffect(() => {
         async function fetchData() {
             try {
-                const res = await getProducts();
+                const res = await getBikes();
                 console.log("API Response:", res); // Debugging line
 
                 if (res.status === 200 && Array.isArray(res.data)) {
-                    setProducts(res.data);
+                    setBikes(res.data);
                 } else {
-                    setError("Failed to load products. Please check the API response structure.");
+                    setError("Failed to load bikes. Please check the API response structure.");
                 }
             } catch (error) {
                 console.error("Fetch error:", error);
@@ -44,25 +44,27 @@ const Products = () => {
         );
     }
 
-    if (!products.length) {
+    if (!bikes.length) {
         return (
             <div className="w-screen h-[90vh] flex flex-col justify-center items-center">
                 <TriangleAlert className="text-orange-400 h-12 w-12" aria-hidden="true" />
-                <p>No Products Available!</p>
+                <p>No Bikes Available!</p>
             </div>
         );
     }
 
     return (
         <div className="w-screen h-full flex justify-start items-start flex-row flex-wrap mt-14 mb-12 gap-y-20 gap-x-2">
-            {products.map((product) => {
-                console.log(product.title, "Image URL:", product.img); // Debugging line
+            {bikes.map((bike) => {
+                console.log(bike.title, "Image URL:", bike.img); // Debugging line
                 return (
-                    <ProductCard 
-                        img={product.img || "https://via.placeholder.com/150"} 
-                        name={product.title} 
-                        price={product.price} 
-                        key={product._id} 
+                    <BikeCard 
+                        img={bike.img || "https://via.placeholder.com/150"} 
+                        name={bike.title} 
+                        price={bike.price} 
+                        brand={bike.brand || "Unknown"} 
+                        rating={bike.rating || 0} 
+                        key={bike._id} 
                     />
                 );
             })}
@@ -70,4 +72,5 @@ const Products = () => {
     );
 };
 
-export default Products;
+export default Bikes;
+
