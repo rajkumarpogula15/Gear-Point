@@ -2,6 +2,7 @@ import HomeCards from "../components/Homecards";
 import HomeCarousel from "../components/HomeCarousel";
 import SocialCard from "../components/SocialCard";
 import ScrollingText from '../components/ScrollingText';
+import HomeReview from "../components/HomeReview";
 
 const Home = () => {
     return (
@@ -12,6 +13,7 @@ const Home = () => {
                 </div>
                 <HomeCarousel />
                 <HomeCards />
+                <HomeReview />
                 <SocialCard />
             </div>
         </>
