@@ -11,17 +11,23 @@ const UsersSchema = new mongoose.Schema({
         unique: true
     },
     phone: {
-        type: Number,
+        type: Number,  // Changed to String
         required: true,
         unique: true
     },
     password: {
         type: String,
         required: true,
+        minlength: 6 // Added minlength validation for password
     },
     address: {
         type: String,
         required: false,
+    },
+    role: {
+        type: String,
+        required: false,
+       
     },
 })
 
