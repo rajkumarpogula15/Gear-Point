@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
     // useUnifiedTopology: true
    
 
-mongoose.connect('mongodb+srv://rajkumarpogula22:Raju12345@in-aws.59ion.mongodb.net/max-store?retryWrites=true&w=majority&appName=in-AWS')
+mongoose.connect('mongodb+srv://gearpointurmr:13153648@cluster0.ga8nr.mongodb.net/GearPoint?retryWrites=true&w=majority&appName=Cluster0')
     .then(() => console.log('MongoDB connected successfully'))
     .catch((error) => console.error('MongoDB connection error:', error));
     
