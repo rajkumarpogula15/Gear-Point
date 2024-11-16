@@ -104,19 +104,19 @@ const AdminBikes = () => {
   return (
     <div className="w-full h-full flex flex-col justify-start items-center p-8 bg-gradient-to-b from-gray-100 via-white to-gray-50 shadow-md rounded-lg">
       <div className="w-full flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold text-purple-600">Bike Management</h1>
+        <h1 className="text-3xl font-bold text-gray-800">Bike Management</h1>
         <button
           onClick={toggleModal}
-          className="px-4 py-2 bg-purple-600 text-white font-semibold rounded-md hover:bg-purple-700 transition-colors duration-200"
+          className="px-4 py-2 bg-teal-600 text-white font-semibold rounded-md hover:bg-teal-700 transition-transform duration-200 transform hover:scale-105"
         >
           Add Bike
         </button>
       </div>
-
+  
       {isModalVisible && (
         <div className="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center z-50">
           <div className="bg-white p-6 rounded-lg w-96 shadow-lg">
-            <h2 className="text-2xl font-semibold text-purple-600 mb-4">{editingBikeId ? "Edit Bike" : "Add New Bike"}</h2>
+            <h2 className="text-2xl font-semibold text-gray-800 mb-4">{editingBikeId ? "Edit Bike" : "Add New Bike"}</h2>
             <form onSubmit={editingBikeId ? handleEditBike : handleAddBike}>
               <input
                 type="text"
@@ -124,7 +124,7 @@ const AdminBikes = () => {
                 placeholder="Bike Title"
                 value={form.title}
                 onChange={handleChange}
-                className="w-full p-2 mb-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="w-full p-2 mb-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
               />
               <input
                 type="text"
@@ -132,7 +132,7 @@ const AdminBikes = () => {
                 placeholder="Image URL"
                 value={form.img}
                 onChange={handleChange}
-                className="w-full p-2 mb-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="w-full p-2 mb-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
               />
               <input
                 type="number"
@@ -140,7 +140,7 @@ const AdminBikes = () => {
                 placeholder="Price"
                 value={form.price}
                 onChange={handleChange}
-                className="w-full p-2 mb-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="w-full p-2 mb-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
               />
               <input
                 type="text"
@@ -148,7 +148,7 @@ const AdminBikes = () => {
                 placeholder="Brand"
                 value={form.brand}
                 onChange={handleChange}
-                className="w-full p-2 mb-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="w-full p-2 mb-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
               />
               <input
                 type="number"
@@ -156,12 +156,12 @@ const AdminBikes = () => {
                 placeholder="Rating (1-5)"
                 value={form.rating}
                 onChange={handleChange}
-                className="w-full p-2 mb-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="w-full p-2 mb-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
               />
               {formError && <div className="text-red-500 text-sm mb-2">{formError}</div>}
               <button
                 type="submit"
-                className="w-full p-2 bg-purple-600 text-white font-semibold rounded-md hover:bg-purple-700 transition-colors duration-200"
+                className="w-full p-2 bg-teal-600 text-white font-semibold rounded-md hover:bg-teal-700 transition-transform duration-200 transform hover:scale-105"
               >
                 {editingBikeId ? "Update Bike" : "Add Bike"}
               </button>
@@ -175,17 +175,17 @@ const AdminBikes = () => {
           </div>
         </div>
       )}
-
+  
       <div className="w-full">
         <ul>
           {bikes.map((bike) => (
-            <li key={bike._id} className="flex justify-between items-center p-4 bg-white mb-2 shadow-lg rounded-md">
+            <li key={bike._id} className="flex justify-between items-center p-4 bg-gray-50 mb-2 shadow-lg rounded-md">
               <div>
-                <h3 className="font-semibold text-xl text-purple-600">{bike.title}</h3>
-                <p>{bike.brand} | ${bike.price} | Rating: {bike.rating}</p>
+                <h3 className="font-semibold text-lg text-gray-800">{bike.title}</h3>
+                <p className="text-gray-600">{bike.brand} | ${bike.price} | Rating: {bike.rating}</p>
               </div>
               <div>
-                <button onClick={() => handleEditClick(bike)} className="p-2 text-yellow-500 hover:text-yellow-600">
+                <button onClick={() => handleEditClick(bike)} className="p-2 text-blue-500 hover:text-blue-600">
                   <Pencil />
                 </button>
                 <button onClick={() => handleDeleteBike(bike._id)} className="p-2 text-red-500 hover:text-red-600">
@@ -198,6 +198,7 @@ const AdminBikes = () => {
       </div>
     </div>
   );
+  
 };
 
 export default AdminBikes;
