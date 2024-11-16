@@ -11,7 +11,7 @@ import Customers from './pages/Admin/AdminCustomers';
 import Settings from './pages/Admin/AdminSettings';
 import AdminBikes from './pages/Admin/AdminBikes'; // Updated AdminProducts to AdminBikes
 import LoadingScreen from './components/LoadingScreen';
-
+import AdminAccessories from './pages/Admin/AdminAccessories';
 
 
 const App = () => {
@@ -47,6 +47,7 @@ const App = () => {
           <Route path="/admin/orders" element={<Orders />} />
           <Route path="/admin/customers" element={<Customers />} />
           <Route path="/admin/settings" element={<Settings />} />
+          <Route path="/admin/accessories" element={<AdminAccessories />} />
         </Route>
       </Routes>
     </Router>
