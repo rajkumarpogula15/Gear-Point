@@ -61,7 +61,7 @@ const Bikes = () => {
             < Navbar/>
             <ScrollingText/>
             <HomeCarousel/>
-            <div className="w-screen     h-full flex justify-start items-start flex-row flex-wrap mt-[8vh] mb-12 gap-y-20 gap-x-2">
+            <div className="w-screen h-full flex justify-start items-start flex-row flex-wrap mt-[8vh] mb-12 gap-y-20 gap-x-2">
                 {bikes.map((bike) => {
                     console.log(bike.title, "Image URL:", bike.img); // Debugging line
                     return (

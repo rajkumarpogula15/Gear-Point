@@ -1,7 +1,7 @@
 import { Facebook, Instagram, Mail, Twitter } from 'lucide-react';
 import React from 'react';
 
-const SocialCard = () => {
+const Footer = () => {
     return (
         <>
             {/*
@@ -10,11 +10,25 @@ const SocialCard = () => {
   This component comes with some `rtl` classes. Please remove them if they are not needed in your project.
 */}
 
-<footer className="bg-black font-sans w-[100vw]">
+<footer className="bg-tertiary font-sans w-[100vw]">
   <div className="mx-auto max-w-screen-xl px-4 pb-6 pt-16 sm:px-6 lg:px-8 lg:pt-24">
     <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
       <div>
-        <div className="flex justify-center text-teal-600 sm:justify-start">
+        <div className="flex justify-center text-teal-600 sm:justify-start opacity-80">
+          <div className='flex flex-col'>
+            <div 
+              className="font-bold text-3xl italic text-white tracking-wide drop-shadow-lg mr-2" 
+              style={{ fontFamily: "'Playfair Display', serif" }}
+          >
+              GearPoint
+          </div>
+          <div
+              className="text-xs text-gray-400 pl-1"
+              style={{ fontFamily: "'Roboto', sans-serif" }}
+          >
+              where every ride begins
+          </div>
+          </div>
           <svg xmlns="http://www.w3.org/2000/svg"  color='white' width="3.5rem" height="3.5rem" viewBox="0 0 48 48">
                           <g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
                               <path d="M16.003 19.964c2.088 1.128 3.955 2.2 3.897 3.326m-.437-15.53c.384-.8.774-1.695 1.166-1.948c.997-.053 2.185.087
@@ -28,6 +42,7 @@ const SocialCard = () => {
                                       <path d="M20.878 30.938c-.55.21-1.131.38-1.73.48l-1.005-2.463m1.355-.62c.143.451.345.772.52 1.152c.322.01.654-.002.982-.025m1.632-16.152c-.401-.56-.59-1.047-.505-1.538c-.643-.196-1.188-.252-1.997.1c.076 1.26-.382 2.252-1.01 2.994c.98-.094 1.937-.355 2.963-.151l2.205.043c.584.491.853 1.048 1.272 1.573l-1.282.022c-.515-.413-1.023-.833-1.675-1.074c-1.35.11.159.319-2.186.41c-.441.448-.804.47-1.852.425l.144.826l.681.363l1.454 1.034c.548.1 1.06.168 1.671.32l.909-.08l.492.96l-.407.079c-.233-.105-.104-.397-.699-.315c-.743-.313-1.487-.331-2.231-.257l-3.59-1.125c.209-.32-.12-1.487-.18-2.068c-.675.304-1.563.537-2.509.75l.346.81c2.066.57 3.7 1.117 5.448 2.146c.562.549.695 1.16.69 2.188l-.794 1.177l-.163 1.024"></path></g><g fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"><path d="M31.79 23.997a7.33 7.33 0 1 1-2.95 5.878c0-1.179.278-2.291.771-3.277M16.92 37.472a6.31 6.31 0 1 1-4.209-7.601"></path><path d="M37.923 29.69a1.671 1.671 0 1 1-1.672-1.672h0c.924 0 1.672.748 1.672 1.671m-25.777 6.269c0 .8-.649 1.449-1.449 1.449h0c-.8 0-1.449-.65-1.449-1.45h0c0-.8.649-1.448 1.45-1.448h0c.8 0 1.448.649 1.448 1.449"></path><path d="m34.621 29.345l-8.992-9.74l-6.125 6.648"></path><path d="m26.514 20.564l-1.994 2.681l-2.555 8.265l-.924 1.344m6.886-11.379l.521.436m.682 3.027l1.584.053m-9.526 8.935c0 .577-.468 1.045-1.045 1.045h0a1.045 1.045 0 0 1-1.046-1.045h0c0-.577.468-1.045 1.046-1.045h0c.577 0 1.045.468 1.045 1.045m-7.323 1.946a39 39 0 0 1-1.73.257m1.27-12.41l2.638 4.049M10.8 24.227l2.757-.802m1.581 5.373l-3.586 5.991"></path><path d="M12.217 35.852c.125 1.204.098 2.03-.287 3.044c1.012.199 3.116-.187 4.573-.71m.582-4.724l.845-.278m-6.003 1.972l1.536-.504m5.755.286l-1.021 2.15m6.081-18.825l1.52 1.55M24.774 15.7l.444 2.114l-1.328 1.137l-1.257.04">
                                           </path></g>
             </svg>
+            
         </div>
 
         <p className="mt-6 max-w-md text-center leading-relaxed text-gray-500 sm:max-w-xs sm:text-left">
@@ -105,90 +120,72 @@ const SocialCard = () => {
               </svg>
             </a>
           </li>
-
-          <li>
-            <a
-              href="#"
-              rel="noreferrer"
-              target="_blank"
-              className="text-teal-700 transition hover:text-teal-700/75"
-            >
-              <span className="sr-only">Dribbble</span>
-              <svg className="size-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path
-                  fillRule="evenodd"
-                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c5.51 0 10-4.48 10-10S17.51 2 12 2zm6.605 4.61a8.502 8.502 0 011.93 5.314c-.281-.054-3.101-.629-5.943-.271-.065-.141-.12-.293-.184-.445a25.416 25.416 0 00-.564-1.236c3.145-1.28 4.577-3.124 4.761-3.362zM12 3.475c2.17 0 4.154.813 5.662 2.148-.152.216-1.443 1.941-4.48 3.08-1.399-2.57-2.95-4.675-3.189-5A8.687 8.687 0 0112 3.475zm-3.633.803a53.896 53.896 0 013.167 4.935c-3.992 1.063-7.517 1.04-7.896 1.04a8.581 8.581 0 014.729-5.975zM3.453 12.01v-.26c.37.01 4.512.065 8.775-1.215.25.477.477.965.694 1.453-.109.033-.228.065-.336.098-4.404 1.42-6.747 5.303-6.942 5.629a8.522 8.522 0 01-2.19-5.705zM12 20.547a8.482 8.482 0 01-5.239-1.8c.152-.315 1.888-3.656 6.703-5.337.022-.01.033-.01.054-.022a35.318 35.318 0 011.823 6.475 8.4 8.4 0 01-3.341.684zm4.761-1.465c-.086-.52-.542-3.015-1.659-6.084 2.679-.423 5.022.271 5.314.369a8.468 8.468 0 01-3.655 5.715z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </a>
-          </li>
         </ul>
       </div>
 
       <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4 lg:col-span-2">
         <div className="text-center sm:text-left">
-          <p className="text-lg font-medium text-gray-900">About Us</p>
+          <p className="text-lg font-medium text-white-900 opacity-80">About Us</p>
 
           <ul className="mt-8 space-y-4 text-sm">
             <li>
-              <a className="text-gray-700 transition hover:text-gray-700/75" href="#">
+              <a className="text-white-700 opacity-50 transition hover:text-white-700/75" href="#">
                 Company History
               </a>
             </li>
 
             <li>
-              <a className="text-gray-700 transition hover:text-gray-700/75" href="#">
+              <a className="text-white-700 opacity-50 transition hover:text-white-700/75" href="#">
                 Meet the Team
               </a>
             </li>
 
             <li>
-              <a className="text-gray-700 transition hover:text-gray-700/75" href="#">
+              <a className="text-white-700 opacity-50 transition hover:text-white-700/75" href="#">
                 Employee Handbook
               </a>
             </li>
 
             <li>
-              <a className="text-gray-700 transition hover:text-gray-700/75" href="#"> Careers </a>
+              <a className="text-white-700 opacity-50 transition hover:text-white-700/75" href="#"> Careers </a>
             </li>
           </ul>
         </div>
 
         <div className="text-center sm:text-left">
-          <p className="text-lg font-medium text-gray-900">Our Services</p>
+          <p className="text-lg font-medium text-white-900 opacity-80">Our Services</p>
 
           <ul className="mt-8 space-y-4 text-sm">
             <li>
-              <a className="text-gray-700 transition hover:text-gray-700/75" href="#">
+              <a className="text-white-700 opacity-50 transition hover:text-white-700/75" href="#">
                 Web Development
               </a>
             </li>
 
             <li>
-              <a className="text-gray-700 transition hover:text-gray-700/75" href="#"> Web Design </a>
+              <a className="text-white-700 opacity-50 transition hover:text-white-700/75" href="#"> Web Design </a>
             </li>
 
             <li>
-              <a className="text-gray-700 transition hover:text-gray-700/75" href="#"> Marketing </a>
+              <a className="text-white-700 opacity-50 transition hover:text-white-700/75" href="#"> Marketing </a>
             </li>
 
             <li>
-              <a className="text-gray-700 transition hover:text-gray-700/75" href="#"> Google Ads </a>
+              <a className="text-white-700 opacity-50 transition hover:text-white-700/75" href="#"> Google Ads </a>
             </li>
           </ul>
         </div>
 
         <div className="text-center sm:text-left">
-          <p className="text-lg font-medium text-gray-900">Helpful Links</p>
+          <p className="text-lg font-medium text-white-900 opacity-80">Helpful Links</p>
 
           <ul className="mt-8 space-y-4 text-sm">
             <li>
-              <a className="text-gray-700 transition hover:text-gray-700/75" href="#"> FAQs </a>
+              <a className="text-white-700 opacity-50 transition hover:text-white-700/75" href="#"> FAQs </a>
             </li>
 
             <li>
-              <a className="text-gray-700 transition hover:text-gray-700/75" href="#"> Support </a>
+              <a className="text-white-700 opacity-50 transition hover:text-white-700/75" href="#"> Support </a>
             </li>
 
             <li>
@@ -196,7 +193,7 @@ const SocialCard = () => {
                 className="group flex justify-center gap-1.5 ltr:sm:justify-start rtl:sm:justify-end"
                 href="#"
               >
-                <span className="text-gray-700 transition group-hover:text-gray-700/75">
+                <span className="text-white-700 opacity-50 transition hover:text-white-700/75 ml-[-93px]">
                   Live Chat
                 </span>
 
@@ -212,7 +209,7 @@ const SocialCard = () => {
         </div>
 
         <div className="text-center sm:text-left">
-          <p className="text-lg font-medium text-gray-900">Contact Us</p>
+          <p className="text-lg font-medium text-white-900 opacity-80">Contact Us</p>
 
           <ul className="mt-8 space-y-4 text-sm">
             <li>
@@ -235,7 +232,7 @@ const SocialCard = () => {
                   />
                 </svg>
 
-                <span className="flex-1 text-gray-700">john@doe.com</span>
+                <span className="ml-[-90px] text-white-700 opacity-50 transition hover:text-white-700/75">john@doe.com</span>
               </a>
             </li>
 
@@ -259,7 +256,7 @@ const SocialCard = () => {
                   />
                 </svg>
 
-                <span className="flex-1 text-gray-700">0123456789</span>
+                <span className="ml-[-120px] text-white-700 opacity-50 transition hover:text-white-700/75">0123456789</span>
               </a>
             </li>
 
@@ -286,7 +283,7 @@ const SocialCard = () => {
                 />
               </svg>
 
-              <address className="-mt-0.5 flex-1 not-italic text-gray-700">
+              <address className="ml-[-28px] text-white-700 opacity-50 transition hover:text-white-700/75">
                 213 Lane, London, United Kingdom
               </address>
             </li>
@@ -324,4 +321,4 @@ const SocialCard = () => {
     );
 }
 
-export default SocialCard;
+export default Footer;
