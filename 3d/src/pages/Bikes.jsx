@@ -6,6 +6,7 @@ import LoadingScreen from '../components/LoadingScreen';
 import HomeCarousel from '../components/HomeCarousel';
 import ScrollingText from '../components/ScrollingText';
 import { Navbar } from '../components';
+import DiscountBanner from "../components/DiscountBanner";
 
 const Bikes = () => {
     const [bikes, setBikes] = useState(null);
@@ -59,6 +60,7 @@ const Bikes = () => {
     return (
         <>
             < Navbar/>
+            <DiscountBanner/>
             <ScrollingText/>
             <HomeCarousel/>
             <div className="w-screen h-full flex justify-start items-start flex-row flex-wrap mt-[8vh] mb-12 gap-y-20 gap-x-2">
