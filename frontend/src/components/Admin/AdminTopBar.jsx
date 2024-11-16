@@ -9,7 +9,7 @@ const AdminTopBar = () => {
         className="font-bold text-2xl text-white italic tracking-wide drop-shadow-lg"
         style={{ fontFamily: "'Playfair Display', serif" }}
       >
-        Admin Dashboard
+        Admin
       </div>
 
       {/* Icons Section */}

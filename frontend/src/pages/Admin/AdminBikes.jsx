@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Pencil, Trash } from 'lucide-react';
 import { getBikes, addBike, editBike, deleteBike } from '../../api/api';
+import { toast } from 'sonner';
 
 const AdminBikes = () => {
   const [bikes, setBikes] = useState([]);
   const [error, setError] = useState(null);
   const [form, setForm] = useState({ title: '', img: '', price: '', brand: '', rating: '' });
   const [formError, setFormError] = useState(null);
-  const [successMessage, setSuccessMessage] = useState(null);
-  const [isFormVisible, setIsFormVisible] = useState(false);
+  const [isModalVisible, setIsModalVisible] = useState(false);
   const [editingBikeId, setEditingBikeId] = useState(null);
 
   useEffect(() => {
@@ -19,6 +19,7 @@ const AdminBikes = () => {
       } catch (error) {
         console.error("Error fetching bikes:", error);
         setError("An error occurred while fetching bikes.");
+        toast.error("An error occurred while fetching bikes.");
       }
     };
     fetchData();
@@ -31,7 +32,6 @@ const AdminBikes = () => {
 
   const handleAddBike = async (e) => {
     e.preventDefault();
-    // Parse price and rating as numbers
     const bikeData = { 
       ...form, 
       price: parseFloat(form.price), 
@@ -40,6 +40,7 @@ const AdminBikes = () => {
 
     if (!bikeData.title || !bikeData.img || !bikeData.price || !bikeData.brand || !bikeData.rating) {
       setFormError("All fields are required.");
+      toast.error("All fields are required.");
       return;
     }
 
@@ -47,11 +48,12 @@ const AdminBikes = () => {
       const res = await addBike(bikeData);
       setBikes((prevBikes) => [...prevBikes, res.data]);
       setForm({ title: '', img: '', price: '', brand: '', rating: '' });
-      setSuccessMessage("Bike added successfully!");
-      setIsFormVisible(false);
+      toast.success("Bike added successfully!");
+      setIsModalVisible(false);
     } catch (error) {
       console.error("Error adding bike:", error);
       setFormError("An error occurred while adding the bike.");
+      toast.error("An error occurred while adding the bike.");
     }
   };
 
@@ -66,11 +68,12 @@ const AdminBikes = () => {
       );
       setForm({ title: '', img: '', price: '', brand: '', rating: '' });
       setEditingBikeId(null);
-      setIsFormVisible(false);
-      setSuccessMessage("Bike updated successfully!");
+      toast.success("Bike updated successfully!");
+      setIsModalVisible(false);
     } catch (error) {
       console.error("Error editing bike:", error);
       setFormError("An error occurred while updating the bike.");
+      toast.error("An error occurred while updating the bike.");
     }
   };
 
@@ -78,17 +81,24 @@ const AdminBikes = () => {
     try {
       await deleteBike(id);
       setBikes((prevBikes) => prevBikes.filter((bike) => bike._id !== id));
-      setSuccessMessage("Bike deleted successfully!");
+      toast.success("Bike deleted successfully!");
     } catch (error) {
       console.error("Error deleting bike:", error);
       setError("An error occurred while deleting the bike.");
+      toast.error("An error occurred while deleting the bike.");
     }
   };
 
   const handleEditClick = (bike) => {
     setForm({ title: bike.title, img: bike.img, price: bike.price, brand: bike.brand, rating: bike.rating });
     setEditingBikeId(bike._id);
-    setIsFormVisible(true);
+    setIsModalVisible(true);
+  };
+
+  const toggleModal = () => {
+    setIsModalVisible(!isModalVisible);
+    setForm({ title: '', img: '', price: '', brand: '', rating: '' });
+    setEditingBikeId(null);
   };
 
   return (
@@ -96,34 +106,75 @@ const AdminBikes = () => {
       <div className="w-full flex justify-between items-center mb-6">
         <h1 className="text-3xl font-bold text-purple-600">Bike Management</h1>
         <button
-          onClick={() => {
-            setIsFormVisible(!isFormVisible);
-            setEditingBikeId(null);
-            setForm({ title: '', img: '', price: '', brand: '', rating: '' });
-          }}
+          onClick={toggleModal}
           className="px-4 py-2 bg-purple-600 text-white font-semibold rounded-md hover:bg-purple-700 transition-colors duration-200"
         >
-          {isFormVisible ? "Cancel" : "Add Bike"}
+          Add Bike
         </button>
       </div>
 
-      {isFormVisible && (
-        <form onSubmit={editingBikeId ? handleEditBike : handleAddBike} className="w-full max-w-md mb-8">
-          <h2 className="text-2xl font-semibold text-purple-600 mb-4">{editingBikeId ? "Edit Bike" : "Add New Bike"}</h2>
-          <input type="text" name="title" placeholder="Bike Title" value={form.title} onChange={handleChange} className="w-full p-2 mb-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500" />
-          <input type="text" name="img" placeholder="Image URL" value={form.img} onChange={handleChange} className="w-full p-2 mb-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500" />
-          <input type="number" name="price" placeholder="Price" value={form.price} onChange={handleChange} className="w-full p-2 mb-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500" />
-          <input type="text" name="brand" placeholder="Brand" value={form.brand} onChange={handleChange} className="w-full p-2 mb-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500" />
-          <input type="number" name="rating" placeholder="Rating (1-5)" value={form.rating} onChange={handleChange} className="w-full p-2 mb-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500" />
-          {formError && <div className="text-red-500 text-sm mb-2">{formError}</div>}
-          <button type="submit" className="w-full p-2 bg-purple-600 text-white font-semibold rounded-md hover:bg-purple-700 transition-colors duration-200">
-            {editingBikeId ? "Update Bike" : "Add Bike"}
-          </button>
-        </form>
+      {isModalVisible && (
+        <div className="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center z-50">
+          <div className="bg-white p-6 rounded-lg w-96 shadow-lg">
+            <h2 className="text-2xl font-semibold text-purple-600 mb-4">{editingBikeId ? "Edit Bike" : "Add New Bike"}</h2>
+            <form onSubmit={editingBikeId ? handleEditBike : handleAddBike}>
+              <input
+                type="text"
+                name="title"
+                placeholder="Bike Title"
+                value={form.title}
+                onChange={handleChange}
+                className="w-full p-2 mb-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+              />
+              <input
+                type="text"
+                name="img"
+                placeholder="Image URL"
+                value={form.img}
+                onChange={handleChange}
+                className="w-full p-2 mb-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+              />
+              <input
+                type="number"
+                name="price"
+                placeholder="Price"
+                value={form.price}
+                onChange={handleChange}
+                className="w-full p-2 mb-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+              />
+              <input
+                type="text"
+                name="brand"
+                placeholder="Brand"
+                value={form.brand}
+                onChange={handleChange}
+                className="w-full p-2 mb-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+              />
+              <input
+                type="number"
+                name="rating"
+                placeholder="Rating (1-5)"
+                value={form.rating}
+                onChange={handleChange}
+                className="w-full p-2 mb-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+              />
+              {formError && <div className="text-red-500 text-sm mb-2">{formError}</div>}
+              <button
+                type="submit"
+                className="w-full p-2 bg-purple-600 text-white font-semibold rounded-md hover:bg-purple-700 transition-colors duration-200"
+              >
+                {editingBikeId ? "Update Bike" : "Add Bike"}
+              </button>
+            </form>
+            <button
+              onClick={toggleModal}
+              className="mt-4 w-full text-red-600 hover:text-red-700 font-semibold"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
       )}
-
-      {successMessage && <div className="text-green-500 text-lg">{successMessage}</div>}
-      {error && <div className="text-red-500 text-lg">{error}</div>}
 
       <div className="w-full">
         <ul>
