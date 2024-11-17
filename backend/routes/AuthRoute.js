@@ -3,6 +3,7 @@ const router = express.Router();
 const Users = require('../models/UsersModel')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
+
 router.post('/register', async (req, res) => {
     try {
         // const newuser = new Users(req.body)
@@ -43,7 +44,7 @@ router.post('/login', async (req, res) => {
     try {
         // const newuser = new Users(req.body)
         const { email, password } = req.body
-        if (!email || !password) {
+        if (!email|| !password) {
             return res.status(401).json({ message: "All fields required" })
         }
 
@@ -51,14 +52,16 @@ router.post('/login', async (req, res) => {
 
         //Email
         const user = await Users.findOne({ email })
+        // console.log(user);
         if (!user) {
             return res.status(500).json({ message: `Invalid Email` })
         }
+        console.log("Sucessfully email checked");
         const checkpassword = await bcrypt.compare(password, user.password)
         if (!checkpassword) {
             return res.status(500).json({ message: `Invalid Password` })
         }
-
+        console.log("Sucessfully email checked");
         //Generate JWT
         // const secretkey = '1811321'
         // const token = jwt.sign({ email: email, exp: Math.floor(Date.now() / 1000) + (60 * 60 * 24 * 7) }, secretkey)

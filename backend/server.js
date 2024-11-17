@@ -1,10 +1,12 @@
 const express = require('express');
 const app = express();
-const cors = require('cors');
+// const cors = require('cors');
 const port = 3000;
 
 // Middleware
-app.use(cors()); // Enable CORS for all origins (or restrict as necessary)
+const cors = require('cors');
+app.use(cors({ origin: 'http://localhost:5173' })); // Allow requests from your frontend
+ // Enable CORS for all origins (or restrict as necessary)
 app.use(express.json()); // To parse JSON request bodies
 
 // DB Connection
