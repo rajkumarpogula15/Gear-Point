@@ -5,7 +5,7 @@ import { Home, Loader2, TriangleAlert } from 'lucide-react';
 import LoadingScreen from '../components/LoadingScreen';
 import HomeCarousel from '../components/HomeCarousel';
 import ScrollingText from '../components/ScrollingText';
-import { Navbar } from '../components';
+import { Navbar, StarsCanvas } from '../components';
 import DiscountBanner from "../components/DiscountBanner";
 import HomeReview from '../components/HomeReview';
 import RegistrationFormPopup from '../components/RegistrationFormPopup';
@@ -87,6 +87,7 @@ const Bikes = () => {
             {/* <HomeReview/> */}
             {/* <RegistrationFormPopup/> */}
             {/* <ContactForm/> */}
+            <StarsCanvas/>
             <Footer/>
         </>
     );

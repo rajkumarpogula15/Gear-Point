@@ -7,7 +7,7 @@ import ScrollingText from '../components/ScrollingText';
 import { Navbar } from '../components';
 import AccessoryCard from '../components/BikeCard'; // Assuming you have an AccessoryCard component
 import Footer from '../components/Footer';
-
+import {StarsCanvas} from '../components';
 
 const Accessories = () => {
     const [accessories, setAccessories] = useState(null);
@@ -78,6 +78,7 @@ const Accessories = () => {
                     );
                 })}
             </div>
+            <StarsCanvas/>
             <Footer/>
         </>
     );

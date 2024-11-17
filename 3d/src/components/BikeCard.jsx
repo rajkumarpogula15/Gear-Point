@@ -56,8 +56,6 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-
-import { styles } from "../styles";
 import { fadeIn } from "../utils/motion";
 
 const BikeCard = ({ name, price, brand, rating, img }) => {
@@ -80,8 +78,20 @@ const BikeCard = ({ name, price, brand, rating, img }) => {
         <p className="mt-2 text-secondary text-[14px]">Price: ${price}</p>
         <p className="mt-2 text-secondary text-[14px]">Rating: {rating}⭐</p>
       </div>
+
+      {/* Buy Now Button */}
+      <div className="mt-5 flex justify-center">
+        <button
+          className="bg-primary text-white font-semibold py-2 px-4 rounded-lg transition-transform duration-300 hover:scale-110"
+          onClick={() => alert('Redirecting to purchase page...')} // You can replace this with actual functionality
+        >
+          Buy Now
+        </button>
+      </div>
     </motion.div>
   );
 };
 
 export default BikeCard;
+
+
