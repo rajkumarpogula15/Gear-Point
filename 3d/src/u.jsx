@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import App from './App';
 import Bikes from './pages/Bikes';
 import Accessories from './pages/Accessories';
+import ContactPage from './pages/ContactPage';
 import AdminLayout from './layouts/AdminLayout';
 import AdminDashboard from './pages/Admin/AdminDashboard';
 import Orders from './pages/Admin/Orders';
@@ -34,7 +35,7 @@ const U = () => {
         <Route path="/" element={<App />} />
         <Route path="/bikes" element={<Bikes />} />
         <Route path="/accessories" element={<Accessories />} />
-
+        <Route path="/contact" element={<ContactPage />} />
         {/* Admin Routes */}
         <Route path="/admin" element={<AdminLayout />}>
           <Route path="dashboard" element={<AdminDashboard />} />

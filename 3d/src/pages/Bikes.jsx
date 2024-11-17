@@ -7,6 +7,10 @@ import HomeCarousel from '../components/HomeCarousel';
 import ScrollingText from '../components/ScrollingText';
 import { Navbar } from '../components';
 import DiscountBanner from "../components/DiscountBanner";
+import HomeReview from '../components/HomeReview';
+import RegistrationFormPopup from '../components/RegistrationFormPopup';
+import ContactForm from '../components/contact/ContactForm';
+import Footer from '../components/Footer';
 
 const Bikes = () => {
     const [bikes, setBikes] = useState(null);
@@ -61,7 +65,9 @@ const Bikes = () => {
         <>
             < Navbar/>
             <DiscountBanner/>
-            <ScrollingText/>
+            <div className="App">
+                <ScrollingText text="Start your journey with GearPoint, where every ride begins! Enjoy up to 5% off on your first order by applying the coupon code 'JNTUHUCEJ'. Don’t wait to Gearup with GearPoint today!" />
+            </div>
             <HomeCarousel/>
             <div className="w-screen h-full flex justify-start items-start flex-row flex-wrap mt-[8vh] mb-12 gap-y-20 gap-x-2">
                 {bikes.map((bike) => {
@@ -78,6 +84,10 @@ const Bikes = () => {
                     );
                 })}
             </div>
+            {/* <HomeReview/> */}
+            {/* <RegistrationFormPopup/> */}
+            <ContactForm/>
+            <Footer/>
         </>
     );
 };

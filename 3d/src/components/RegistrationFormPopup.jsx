@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import ReCAPTCHA from "react-google-recaptcha";
 
-const RegistrationFormPopup = () => {
+
+const   RegistrationFormPopup = () => {
   // State for form fields and OTP
   const [name, setName] = useState('');
   const [mobile, setMobile] = useState('');
@@ -37,6 +39,10 @@ const RegistrationFormPopup = () => {
     }
   };
 
+  function onChange(value) {
+    console.log("Captcha value:", value);
+  }
+  
   return (
     <>
       {/* Button to open the popup */}
@@ -110,6 +116,11 @@ const RegistrationFormPopup = () => {
                 </>
               )}
 
+              <ReCAPTCHA
+                sitekey="6LfKZYEqAAAAALp_MZEioD5PKbeOGb--km21dueT"
+                onChange={onChange}
+              />,
+
               {/* Send OTP button if OTP hasn't been sent yet */}
               {!isOtpSent && (
                 <button 
@@ -129,6 +140,8 @@ const RegistrationFormPopup = () => {
               >
                 Register
               </button>
+              
+
             </form>
           </div>
         </div>
