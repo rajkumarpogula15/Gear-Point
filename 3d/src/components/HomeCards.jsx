@@ -1,5 +1,4 @@
 import React from 'react';
-
 const HomeCards = () => {
   // Array of card data
   const cardsData = [
