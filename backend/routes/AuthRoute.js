@@ -60,9 +60,9 @@ router.post('/login', async (req, res) => {
         }
 
         //Generate JWT
-        const secretkey = '1811321'
-        const token = jwt.sign({ email: email, exp: Math.floor(Date.now() / 1000) + (60 * 60 * 24 * 7) }, secretkey)
-        return res.status(200).json({ message: "login success", token: token })
+        // const secretkey = '1811321'
+        // const token = jwt.sign({ email: email, exp: Math.floor(Date.now() / 1000) + (60 * 60 * 24 * 7) }, secretkey)
+        return res.status(200).json({ message: "login success"})
     } catch (error) {
         return res.status(500).json({ message: error.message })
     }

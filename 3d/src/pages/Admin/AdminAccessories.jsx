@@ -109,7 +109,7 @@ const AdminAccessories = () => {
             setEditingAccessoryId(null);
             setForm({ name: '', img: '', price: '', category: '', brand: '', stock: '', rating: '' });
           }}
-          className="px-4 py-2 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition-colors duration-200"
+          className="px-4 py-2 bg-gradient-to-r from-green-500 to-blue-500 text-white font-semibold rounded-md hover:from-green-600 hover:to-blue-600 transition-colors duration-200"
         >
           {isModalVisible ? 'Cancel' : 'Add Accessory'}
         </button>
@@ -128,7 +128,7 @@ const AdminAccessories = () => {
                 placeholder="Accessory Name"
                 value={form.name}
                 onChange={handleChange}
-                className="w-full p-2 mb-2 border text-gray-800 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full p-2 mb-2 border text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               <input
                 type="text"
@@ -136,7 +136,7 @@ const AdminAccessories = () => {
                 placeholder="Image URL"
                 value={form.img}
                 onChange={handleChange}
-                className="w-full p-2 mb-2 border text-gray-800 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full p-2 mb-2 border text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               <input
                 type="number"
@@ -144,7 +144,7 @@ const AdminAccessories = () => {
                 placeholder="Price"
                 value={form.price}
                 onChange={handleChange}
-                className="w-full p-2 mb-2 border text-gray-800 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full p-2 mb-2 border text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               <input
                 type="text"
@@ -152,7 +152,7 @@ const AdminAccessories = () => {
                 placeholder="Category"
                 value={form.category}
                 onChange={handleChange}
-                className="w-full p-2 mb-2 border text-gray-800 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full p-2 mb-2 border text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               <input
                 type="text"
@@ -160,7 +160,7 @@ const AdminAccessories = () => {
                 placeholder="Brand"
                 value={form.brand}
                 onChange={handleChange}
-                className="w-full p-2 mb-2 border text-gray-800 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full p-2 mb-2 border text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               <input
                 type="number"
@@ -168,7 +168,7 @@ const AdminAccessories = () => {
                 placeholder="Stock"
                 value={form.stock}
                 onChange={handleChange}
-                className="w-full p-2 mb-2 border text-gray-800 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full p-2 mb-2 border text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               <input
                 type="number"
@@ -176,15 +176,24 @@ const AdminAccessories = () => {
                 placeholder="Rating (1-5)"
                 value={form.rating}
                 onChange={handleChange}
-                className="w-full p-2 mb-2 border text-gray-800 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full p-2 mb-2 border text-white rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               {formError && <div className="text-red-500 text-sm mb-2">{formError}</div>}
-              <button
-                type="submit"
-                className="w-full p-2 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition-colors duration-200"
-              >
-                {editingAccessoryId ? 'Update Accessory' : 'Add Accessory'}
-              </button>
+              <div className="flex gap-4">
+                <button
+                  type="submit"
+                  className="w-full p-2 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition-colors duration-200"
+                >
+                  {editingAccessoryId ? 'Update Accessory' : 'Add Accessory'}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setIsModalVisible(false)}
+                  className="w-full p-2 bg-red-600 text-white font-semibold rounded-md hover:bg-red-700 transition-colors duration-200"
+                >
+                  Cancel
+                </button>
+              </div>
             </form>
           </div>
         </div>
@@ -206,7 +215,10 @@ const AdminAccessories = () => {
                 <button onClick={() => handleEditClick(accessory)} className="p-2 text-yellow-500 hover:text-yellow-600">
                   <Pencil />
                 </button>
-                <button onClick={() => handleDeleteAccessory(accessory._id)} className="p-2 text-red-500 hover:text-red-600">
+                <button
+                  onClick={() => handleDeleteAccessory(accessory._id)}
+                  className="p-2 text-red-500 hover:text-red-600"
+                >
                   <Trash />
                 </button>
               </div>

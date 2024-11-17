@@ -21,8 +21,8 @@ const deleteOrder = (id) => axios.delete(`${API}/orders/delete/${id}`);
 // User APIs
 const getUsers = () => axios.get(`${API}/users/all`);
 const deleteCustomer = (id) => axios.delete(`${API}/users/delete/${id}`);
-const Login = (credentials) => axios.post(`${API}/users/login`, credentials);
-const Register = (credentials) => axios.post(`${API}/users/register`, credentials);
+const Login = (credentials) => axios.post(`${API}/auth/login`, credentials);
+const Register = (credentials) => axios.post(`${API}/auth/register`, credentials);
 const addCustomer = (customerData) => axios.post(`${API}/users/add`, customerData);
 
 // Query APIs

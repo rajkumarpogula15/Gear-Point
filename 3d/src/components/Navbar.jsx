@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
+import { LoginModal, RegisterModal } from "./loginregister";
 
 import { styles } from "../styles";
 import { navLinks } from "../constants";
@@ -48,7 +49,8 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav
+    <>
+      <nav
       className={`${
         styles.paddingX
       } w-full flex items-center py-5 fixed top-0 z-20 ${
@@ -167,7 +169,10 @@ const Navbar = () => {
             </div>
       </div>
     </nav>
-  );
+    {showLogin && <LoginModal onClose={() => setShowLogin(false)} />}
+    {showRegister && <RegisterModal onClose={() => setShowRegister(false)} />}
+  
+    </>);
 };
 
 export default Navbar;
