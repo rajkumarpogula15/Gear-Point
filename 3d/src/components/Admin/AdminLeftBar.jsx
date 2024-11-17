@@ -18,7 +18,7 @@ const AdminLeftBar = () => {
   };
 
   return (
-    <div className="w-full h-screen bg-gradient-to-b from-gray-800 via-gray-900 to-black shadow-xl flex justify-center items-center">
+    <div className="w-full h-full bg-gradient-to-b from-gray-800 via-gray-900 to-black shadow-xl flex justify-center items-center">
       <div className="h-full w-full flex flex-col">
         
         {/* Logo Section */}
