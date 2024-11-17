@@ -10,7 +10,7 @@ const AdminLeftBar = () => {
     { title: 'Orders', path: '/admin/orders' },
     { title: 'Customers', path: '/admin/customers' },
     { title: 'Accessories', path: '/admin/accessories' }, // Added Accessories link
-    // { title: 'Settings', path: '/admin/settings' },
+    { title: 'Queries', path: '/admin/queries' },
   ];
 
   const handleLogout = () => {
