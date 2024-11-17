@@ -11,7 +11,7 @@ import Customers from './pages/Admin/AdminCustomers';
 import AdminBikes from './pages/Admin/AdminBikes';
 import AdminAccessories from './pages/Admin/AdminAccessories';
 import LoadingScreen from './components/LoadingScreen';
-
+import AdminQueries from './pages/Admin/AdminQueries';
 const U = () => {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -43,6 +43,8 @@ const U = () => {
           <Route path="orders" element={<Orders />} />
           <Route path="customers" element={<Customers />} />
           <Route path="accessories" element={<AdminAccessories />} />
+          <Route path="queries" element={<AdminQueries />} />
+
         </Route>
 
         {/* Fallback Route */}

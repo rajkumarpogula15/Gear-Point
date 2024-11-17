@@ -25,6 +25,12 @@ const Login = (credentials) => axios.post(`${API}/users/login`, credentials);
 const Register = (credentials) => axios.post(`${API}/users/register`, credentials);
 const addCustomer = (customerData) => axios.post(`${API}/users/add`, customerData);
 
+// Query APIs
+const getQueries = () => axios.get(`${API}/queries/all`);
+const addQuery = (queryData) => axios.post(`${API}/queries/add`, queryData);
+const editQuery = (id, updatedData) => axios.put(`${API}/queries/edit/${id}`, updatedData);
+const deleteQuery = (id) => axios.delete(`${API}/queries/delete/${id}`);
+
 export {
   getBikes,
   addBike,
@@ -40,5 +46,9 @@ export {
   deleteCustomer,
   addCustomer,
   Login,
-  Register
+  Register,
+  getQueries,
+  addQuery,
+  editQuery,
+  deleteQuery
 };
