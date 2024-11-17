@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import discountImage from "../assets/OurImages/gpr.jpg";
+
 
 const DiscountBanner = () => {
   const [showBanner, setShowBanner] = useState(false);
@@ -6,7 +8,7 @@ const DiscountBanner = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowBanner(true);
-    }, 3000); // Show after 10 seconds
+    }, 1000); // Show after 1 second
 
     return () => clearTimeout(timer);
   }, []);
@@ -18,37 +20,34 @@ const DiscountBanner = () => {
   return (
     <>
       {showBanner && (
-        // Overlay with reduced opacity for the rest of the screen
         <div className="fixed inset-0 bg-black bg-opacity-90 flex justify-center items-center z-50 opacity-100">
-          {/* Banner */}
-          <div className="relative w-5/6 max-w-3xl bg-white rounded-lg overflow-hidden shadow-2xl">
-            <section className="relative">
+          <div className="relative w-5/6 max-w-4xl h-[80vh] bg-white rounded-lg overflow-hidden shadow-2xl">
+            <section className="relative h-full">
               <img
-                alt=""
-                src="https://images.unsplash.com/photo-1611510338559-2f463335092c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80"
-                className="h-48 w-full object-cover"
+                alt="Discount Image"
+                src={discountImage}
+                className="h-[50vh] w-full  object-cover"
               />
 
-              <div className="p-6 text-center sm:p-8">
-                <p className="text-lg font-semibold uppercase tracking-widest">Run with the pack</p>
+              <div className="p-3 text-center mt-2">
+                <p className="text-sm font-semibold uppercase tracking-widest text-red-500">Run with the pack</p>
 
-                <h2 className="mt-4 font-black uppercase">
-                  <span className="text-5xl font-black sm:text-6xl lg:text-7xl"> Get 20% off </span>
-                  <span className="mt-2 block text-lg">On your next order over $50</span>
+                <h2 className="font-black uppercase text-red-600">
+                  <span className="text-3xl font-black  lg:text-4xl">Get 5% off</span>
+                  <span className=" block text-lg text-red-500">On your next order</span>
                 </h2>
 
                 <a
-                  className="mt-6 inline-block w-full bg-black py-3 text-lg font-bold uppercase tracking-widest text-white rounded-lg hover:bg-gray-800"
+                  className="mt-2 inline-block w-80 bg-black py-3 text-lg font-bold uppercase tracking-widest text-white rounded-lg hover:bg-gray-800"
                   href="#"
                 >
                   Get Discount
                 </a>
 
-                <p className="mt-6 text-xs font-medium uppercase text-gray-400">
-                  Offer valid until 24th March, 2021 *
+                <p className="mt-2 text-xs font-medium uppercase text-gray-400">
+                  Offer valid until 31st December, 2024 *
                 </p>
 
-                {/* Close Button */}
                 <button
                   onClick={handleClose}
                   className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-2xl font-bold"

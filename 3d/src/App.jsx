@@ -13,7 +13,7 @@ import AdminAccessories from './pages/Admin/AdminAccessories';
 import LoadingScreen from './components/LoadingScreen';
 import AdminQueries from './pages/Admin/AdminQueries';
 import Review from './pages/Review';
-const U = () => {
+const App = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   // Simulating loading screen timeout
@@ -56,4 +56,4 @@ const U = () => {
   );
 };
 
-export default U;
+export default App;
