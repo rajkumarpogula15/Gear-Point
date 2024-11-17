@@ -96,7 +96,6 @@ import Footer from '../components/Footer';
 import { StarsCanvas } from '../components';
 import { motion } from "framer-motion";  // Import motion from Framer Motion
 import { fadeIn } from "../utils/motion"; // Assuming you have fadeIn animation variant defined
-
 const Accessories = () => {
     const [accessories, setAccessories] = useState(null);
     const [loading, setLoading] = useState(true);
