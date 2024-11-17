@@ -41,9 +41,36 @@ import {
     {
       id:"contact",
       title:"Contact"
+    },
+    {
+      id:"user",
+      title:"User"
     }
   ];
   
+  export const UserNavLinks = [
+    {
+      id: "bikes",
+      title: "Bikes",
+    },
+    {
+      id: "accessories",
+      title: "Accessories",
+    },
+    {
+      id: "reviews",
+      title: "Reviews",
+    },
+    {
+      id:"contact",
+      title:"Contact"
+    },
+    {
+      id:"cart",
+      title:"Cart"
+    }
+  ];
+
   const services = [
       { 
         title: "TVS", 
@@ -190,19 +217,19 @@ import {
     //     "Participating in code reviews and providing constructive feedback to other developers.",
     //   ],
     // },
-    // {
-    //   title: "Full stack Developer",
-    //   company_name: "Meta",
-    //   icon: meta,
-    //   iconBg: "#E6DEDD",
-    //   date: "Jan 2023 - Present",
-    //   points: [
-    //     "Developing and maintaining web applications using React.js and other related technologies.",
-    //     "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-    //     "Implementing responsive design and ensuring cross-browser compatibility.",
-    //     "Participating in code reviews and providing constructive feedback to other developers.",
-    //   ],
-    // },
+    {
+      title: "Full stack Developer",
+      company_name: "Meta",
+      icon: meta,
+      iconBg: "#E6DEDD",
+      date: "Jan 2023 - Present",
+      points: [
+        "Developing and maintaining web applications using React.js and other related technologies.",
+        "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
+        "Implementing responsive design and ensuring cross-browser compatibility.",
+        "Participating in code reviews and providing constructive feedback to other developers.",
+      ],
+    },
 
 
 

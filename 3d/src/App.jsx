@@ -13,6 +13,8 @@ import AdminAccessories from './pages/Admin/AdminAccessories';
 import LoadingScreen from './components/LoadingScreen';
 import AdminQueries from './pages/Admin/AdminQueries';
 import Review from './pages/Review';
+import User from './pages/User';
+
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -38,6 +40,7 @@ const App = () => {
         <Route path="/accessories" element={<Accessories />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/reviews" element={<Review />} />
+        <Route path="/user" element={<User />} />
         {/* Admin Routes */}
         <Route path="/admin" element={<AdminLayout />}>
           <Route path="dashboard" element={<AdminDashboard />} />
