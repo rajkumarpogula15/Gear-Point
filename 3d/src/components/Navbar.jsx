@@ -145,24 +145,23 @@ const Navbar = () => {
                         <button
                             className="block w-full text-left px-4 py-2 hover:bg-gray-700"
                             onClick={() => {
-                                setShowLogin(true);
-                                setIsDropdownOpen(false);
-                            }}
-                        >
-                            Login
-                        </button>
-                        <button
-                            className="block w-full text-left px-4 py-2 hover:bg-gray-700"
-                            onClick={() => {
                                 setShowRegister(true);
                                 setIsDropdownOpen(false);
                             }}
                         >
                             Register
                         </button>
-                        <button className="block w-full text-left px-4 py-2 hover:bg-gray-700">
-                            Logout
+                        
+                        <button
+                            className="block w-full text-left px-4 py-2 hover:bg-gray-700"
+                            onClick={() => {
+                                setShowLogin(true);
+                                setIsDropdownOpen(false);
+                            }}
+                        >
+                            Login
                         </button>
+                        
                     </div>
                 )}
             </div>

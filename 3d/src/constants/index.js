@@ -39,10 +39,6 @@ import {
       title: "Reviews",
     },
     {
-      id:"about",
-      title:"About"
-    },
-    {
       id:"contact",
       title:"Contact"
     }
