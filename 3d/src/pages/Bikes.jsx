@@ -86,7 +86,7 @@ const Bikes = () => {
             </div>
             {/* <HomeReview/> */}
             {/* <RegistrationFormPopup/> */}
-            <ContactForm/>
+            {/* <ContactForm/> */}
             <Footer/>
         </>
     );
