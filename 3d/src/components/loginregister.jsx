@@ -1,23 +1,30 @@
 import React, { useState } from "react";
-import {Login, Register} from '../api/api'
+import { Login, Register } from "../api/api";
 
 const LoginModal = ({ onClose }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
+  
   const handleLogin = async () => {
     try {
-      const response = await Login() ;
-        
-      const result = await response.json();
-      if (response.ok) {
+      const obj={
+        email:email,
+        password:password
+      }
+      console.log(obj);
+      const response = await Login(obj);
+      // console.log(response);
+      const result = await JSON.stringify(response);
+      if (response.status === 200){
         alert("Login successful!");
         onClose();
       } else {
         setError(result.message || "Login failed!");
       }
     } catch (err) {
+      console.error("Login Error:", err);
       setError("An error occurred. Please try again.");
     }
   };
@@ -31,9 +38,7 @@ const LoginModal = ({ onClose }) => {
         >
           &times;
         </button>
-        <h2 className="text-2xl font-bold text-center text-gray-800 mb-4">
-          Login
-        </h2>
+        <h2 className="text-2xl font-bold text-center text-gray-800 mb-4">Login</h2>
         <div className="space-y-4">
           <input
             type="email"
@@ -58,10 +63,7 @@ const LoginModal = ({ onClose }) => {
           >
             Login
           </button>
-          <button
-            onClick={onClose}
-            className="text-gray-500 hover:underline"
-          >
+          <button onClick={onClose} className="text-gray-500 hover:underline">
             Cancel
           </button>
         </div>
@@ -81,26 +83,22 @@ const RegisterModal = ({ onClose }) => {
 
   const handleRegister = async () => {
     try {
-      console.log('Form data sent:', formData); // Debugging log
-  
-      const response = await Register(formData); // Pass formData to Register function
-  
-      const result = await response.data; // Assuming response is in data
-      console.log("Registration Response:", result);
-  
-      if (response.status === 200) { // Check for successful registration
+      // console.log(formData);
+      const response = await Register(formData);
+      const result = await JSON.stringify();
+      if (response.status === 200) {
         alert("Registration successful!");
         onClose();
       } else {
-        setError(result.message || "Registration failed!");
+        setError(err.response?.data?.message || "An error occurred. Please try again.");
       }
     } catch (err) {
-      setError("An error occurred. Please try again.");
       console.error("Registration Error:", err);
+      setError("An error occurred. Please try again.");
+      // setError("registration sucessful");
     }
   };
-  
-  
+
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
       <div className="bg-white rounded-lg shadow-lg w-full max-w-md p-6 relative">
@@ -110,44 +108,34 @@ const RegisterModal = ({ onClose }) => {
         >
           &times;
         </button>
-        <h2 className="text-2xl font-bold text-center text-gray-800 mb-4">
-          Register
-        </h2>
+        <h2 className="text-2xl font-bold text-center text-gray-800 mb-4">Register</h2>
         <div className="space-y-4">
           <input
             type="text"
             placeholder="Name"
             value={formData.name}
-            onChange={(e) =>
-              setFormData({ ...formData, name: e.target.value })
-            }
+            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
             className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           <input
             type="email"
             placeholder="Email"
             value={formData.email}
-            onChange={(e) =>
-              setFormData({ ...formData, email: e.target.value })
-            }
+            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
             className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           <input
             type="text"
             placeholder="Phone"
             value={formData.phone}
-            onChange={(e) =>
-              setFormData({ ...formData, phone: e.target.value })
-            }
+            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
             className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           <input
             type="password"
             placeholder="Password"
             value={formData.password}
-            onChange={(e) =>
-              setFormData({ ...formData, password: e.target.value })
-            }
+            onChange={(e) => setFormData({ ...formData, password: e.target.value })}
             className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           {error && <p className="text-red-500 text-sm">{error}</p>}
@@ -159,10 +147,7 @@ const RegisterModal = ({ onClose }) => {
           >
             Register
           </button>
-          <button
-            onClick={onClose}
-            className="text-gray-500 hover:underline"
-          >
+          <button onClick={onClose} className="text-gray-500 hover:underline">
             Cancel
           </button>
         </div>
