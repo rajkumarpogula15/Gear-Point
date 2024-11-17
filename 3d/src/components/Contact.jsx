@@ -6,6 +6,9 @@ import { EarthCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
 
+import Swal from 'sweetalert2';
+import ReCAPTCHA from "react-google-recaptcha";
+
 const Contact = () => {
   const formRef = useRef();
   const [form, setForm] = useState({
@@ -21,30 +24,48 @@ const Contact = () => {
     setForm({ ...form, [name]: value });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+
+    formData.append("access_key", "05176a54-0a32-44a1-b11e-42dc0b892079");
+
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
 
     try {
-      // Here you could replace with an API call
-      console.log("Form Data:", form);
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: json,
+      }).then((res) => res.json());
 
-      // Reset the form fields
-      setForm({
-        name: "",
-        email: "",
-        message: "",
-      });
-
-      alert("Thank you! Your message has been sent.");
-      console.log(form);
+      if (res.success) {
+        Swal.fire({
+          title: "Success!",
+          text: "Message sent successfully!",
+          icon: "success",
+        });
+        event.target.reset();
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Something went wrong!",
+        });
+      }
     } catch (error) {
-      console.error("Error submitting the form:", error);
-      alert("An error occurred. Please try again.");
-    } finally {
-      setLoading(false);
+      console.error("Error submitting form", error);
     }
   };
+
+  // reCAPTCHA callback
+  function onChange(value) {
+    console.log("Captcha value:", value);
+  }
 
   return (
     <>
@@ -56,7 +77,7 @@ const Contact = () => {
           <p className={styles.sectionSubText}>Get in touch</p>
           <h3 className={styles.sectionHeadText}>Contact.</h3>
 
-          <form ref={formRef} onSubmit={handleSubmit} className="mt-12 flex flex-col gap-8">
+          <form ref={formRef} onSubmit={onSubmit} className="mt-12 flex flex-col gap-8">
             <label className="flex flex-col">
               <span className="text-white font-medium mb-4">Your Name</span>
               <input
@@ -90,6 +111,22 @@ const Contact = () => {
                 className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
               />
             </label>
+
+            <div className="flex  mt-4">
+              <div
+                className="transform scale-x-140 scale-y-100 origin-left rounded-lg overflow-hidden"
+              >
+                <ReCAPTCHA
+                  sitekey="6LfKZYEqAAAAALp_MZEioD5PKbeOGb--km21dueT"
+                  onChange={onChange}
+                />
+              </div>
+            </div>
+
+            
+
+
+
 
             <button
               type="submit"

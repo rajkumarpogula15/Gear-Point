@@ -1,27 +1,48 @@
-import HomeCards from "../components/Homecards";
-import HomeCarousel from "../components/HomeCarousel";
-import SocialCard from "../components/SocialCard";
-import ScrollingText from '../components/ScrollingText';
-import HomeReview from "../components/HomeReview";
-import RegistrationFormPopup from "../components/RegistrationFormPopup";
-import DiscountBanner from "../components/DiscountBanner";
-const Home = () => {
-    return (
-        <>
-            <div className="flex flex-col justify-start items-start gap-8 w-screen h-full">
-                <DiscountBanner/>
-                <div className="App">
-                    <ScrollingText text="Start your journey with GearPoint, where every ride begins! Enjoy up to 5% off on your first order by applying the coupon code 'JNTUHUCEJ'. Don’t wait to Gearup with GearPoint today!" />
-                </div>
-                
-                <HomeCarousel />
-                <HomeCards />
-                <HomeReview />
-                <RegistrationFormPopup />
-                <SocialCard />
-            </div>
-        </>
-    );
-};
+// import { BrowserRouter } from 'react-router-dom'
+import { About,Contact,Experience,Feedbacks,Hero,Navbar,Tech,Works,StarsCanvas } from '../components'
+import Footer from '../components/Footer'
+import LoadingScreen from '../components/LoadingScreen';
+import React, { useState, useEffect } from 'react';
+const Home=()=> {
+  const [isLoading, setIsLoading] = useState(true);
 
-export default Home;
+  // Simulating loading screen timeout
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return <LoadingScreen />;
+  }
+  return (
+    <>
+
+      <div className="relative z-0 bg-primary">
+        <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
+          <Navbar/>
+          <Hero />
+        </div>
+        <About/>
+        <Experience/>
+        {/* <Tech/> */}
+        {/* <Works/> */}
+        <Feedbacks/>
+        <div className="relative z-0">
+          <Contact/>  
+          <StarsCanvas/>
+          <Footer/>
+        </div>
+
+
+      </div>
+    </>
+  )
+}
+
+export default Home
+
+
