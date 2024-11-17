@@ -41,32 +41,28 @@ import {
     {
       id:"contact",
       title:"Contact"
-    },
-    {
-      id:"user",
-      title:"User"
     }
   ];
   
   export const UserNavLinks = [
     {
-      id: "bikes",
+      id: "user/bikes",
       title: "Bikes",
     },
     {
-      id: "accessories",
+      id: "user/accessories",
       title: "Accessories",
     },
     {
-      id: "reviews",
+      id: "user/reviews",
       title: "Reviews",
     },
     {
-      id:"contact",
+      id:"user/contact",
       title:"Contact"
     },
     {
-      id:"cart",
+      id:"user/cart",
       title:"Cart"
     }
   ];

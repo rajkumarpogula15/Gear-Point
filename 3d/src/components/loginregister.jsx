@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { Login, Register } from "../api/api";
+import { useNavigate } from "react-router-dom";
+import { Login } from "../api/api";
 
 const LoginModal = ({ onClose }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-
+  const navigate = useNavigate(); // Add this line
   
   const handleLogin = async () => {
     try {
@@ -20,6 +21,7 @@ const LoginModal = ({ onClose }) => {
       if (response.status === 200){
         alert("Login successful!");
         onClose();
+        navigate("/user");
       } else {
         setError(result.message || "Login failed!");
       }
@@ -157,3 +159,5 @@ const RegisterModal = ({ onClose }) => {
 };
 
 export { LoginModal, RegisterModal };
+
+

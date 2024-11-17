@@ -5,8 +5,9 @@ import { styles } from "../styles";
 import { EarthCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
+import { LoginModal, RegisterModal } from "../components/loginregister.jsx"; // Adjusted the import path
 
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
 import ReCAPTCHA from "react-google-recaptcha";
 
 const Contact = () => {
@@ -18,57 +19,27 @@ const Contact = () => {
   });
 
   const [loading, setLoading] = useState(false);
+  const [showLogin, setShowLogin] = useState(false); // Added state for LoginModal visibility
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
   };
 
-  const onSubmit = async (event) => {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-
-    formData.append("access_key", "05176a54-0a32-44a1-b11e-42dc0b892079");
-
-    const object = Object.fromEntries(formData);
-    const json = JSON.stringify(object);
-
-    try {
-      const res = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: json,
-      }).then((res) => res.json());
-
-      if (res.success) {
-        Swal.fire({
-          title: "Success!",
-          text: "Message sent successfully!",
-          icon: "success",
-        });
-        event.target.reset();
-      } else {
-        Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: "Something went wrong!",
-        });
-      }
-    } catch (error) {
-      console.error("Error submitting form", error);
-    }
+  const handleSubmit = (e) => {
+    e.preventDefault(); // Prevent form from reloading the page
+    setShowLogin(true); // Show the LoginModal when form is submitted
   };
 
-  // reCAPTCHA callback
-  function onChange(value) {
+  const handleCaptchaChange = (value) => {
     console.log("Captcha value:", value);
-  }
+    // Handle captcha verification here if needed
+  };
 
   return (
     <>
+      {showLogin && <LoginModal onClose={() => setShowLogin(false)} />} {/* Display LoginModal */}
+
       <div className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden`}>
         <motion.div
           variants={slideIn("left", "tween", 0.2, 1)}
@@ -77,7 +48,7 @@ const Contact = () => {
           <p className={styles.sectionSubText}>Get in touch</p>
           <h3 className={styles.sectionHeadText}>Contact.</h3>
 
-          <form ref={formRef} onSubmit={onSubmit} className="mt-12 flex flex-col gap-8">
+          <form ref={formRef} onSubmit={handleSubmit} className="mt-12 flex flex-col gap-8">
             <label className="flex flex-col">
               <span className="text-white font-medium mb-4">Your Name</span>
               <input
@@ -113,12 +84,10 @@ const Contact = () => {
             </label>
 
             <div className="flex ml-5 mt-[-10px]">
-              <div
-                className="transform scale-x-120 scale-y-100 origin-left rounded-md overflow-hidden"
-              >
+              <div className="transform scale-x-120 scale-y-100 origin-left rounded-md overflow-hidden">
                 <ReCAPTCHA
                   sitekey="6LfKZYEqAAAAALp_MZEioD5PKbeOGb--km21dueT"
-                  onChange={onChange}
+                  onChange={handleCaptchaChange} // Changed to defined function
                 />
               </div>
             </div>

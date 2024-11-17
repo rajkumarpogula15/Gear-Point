@@ -13,7 +13,15 @@ import AdminAccessories from './pages/Admin/AdminAccessories';
 import LoadingScreen from './components/LoadingScreen';
 import AdminQueries from './pages/Admin/AdminQueries';
 import Review from './pages/Review';
-import User from './pages/User';
+
+import UserHome from './pages/FUser/UserHome';
+import UserBikes from './pages/FUser/UserBikes';
+import UserAccessories from './pages/Accessories'
+import UserReviews from './pages/FUser/UserReviews';
+import UserContact from './pages/FUser/UserContact';
+import UsercCart from './pages/FUser/UserCart';
+
+
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -40,7 +48,16 @@ const App = () => {
         <Route path="/accessories" element={<Accessories />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/reviews" element={<Review />} />
-        <Route path="/user" element={<User />} />
+        {/* <Route path="/user" element={<User />} /> */}
+        
+        {/* User Routes */}
+        <Route path="/user" element={<UserHome />} />
+        <Route path="/user/bikes" element={<UserBikes />} />
+        <Route path="/user/reviews" element={<UserReviews />} />
+        <Route path="/user/accessories" element={<UserAccessories />} />
+        <Route path="/user/contact" element={<UserContact />} />
+        <Route path="/user/cart" element={<UsercCart />} />
+
         {/* Admin Routes */}
         <Route path="/admin" element={<AdminLayout />}>
           <Route path="dashboard" element={<AdminDashboard />} />

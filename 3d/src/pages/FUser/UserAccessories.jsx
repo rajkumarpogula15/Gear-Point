@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { getAccessories } from '../api/api'; // API function for fetching accessories
+import { getBikes } from '../../api/api.js'; // API function for fetching accessories
 import { TriangleAlert } from 'lucide-react';
-import LoadingScreen from '../components/LoadingScreen';
-import { Navbar } from '../components';
-import AccessoryCard from '../components/BikeCard'; // Assuming you have an AccessoryCard component
-import Footer from '../components/Footer';
+import LoadingScreen from '../../components/LoadingScreen';
+import AccessoryCard from '../../components/BikeCard'; // Assuming you have an AccessoryCard component
+import Footer from '../../components/Footer';
 import { motion } from "framer-motion";  // Import motion from Framer Motion
-import { fadeIn } from "../utils/motion"; // Assuming you have fadeIn animation variant defined
-const Accessories = () => {
+import { fadeIn } from "../../utils/motion"; // Assuming you have fadeIn animation variant defined
+import UserNavBar from './UserNavBar';
+
+const UserAccessories = () => {
     const [accessories, setAccessories] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -58,7 +59,7 @@ const Accessories = () => {
 
     return (
         <>
-            <Navbar />
+            <UserNavBar />
             <div className="w-screen h-full flex justify-start items-start flex-row flex-wrap mt-[22vh] mb-12 gap-y-20 gap-x-2">
                 {accessories.map((accessory, index) => {
                     console.log(accessory.name, "Image URL:", accessory.img); // Debugging line
@@ -86,4 +87,4 @@ const Accessories = () => {
     );
 };
 
-export default Accessories;
+export default UserAccessories;
