@@ -9,7 +9,7 @@ const Home=()=> {
   // Simulating loading screen timeout
   useEffect(() => {
     const timer = setTimeout(() => {
-      setIsLoading(false);
+      setIsLoading(false);  
     }, 1000);
 
     return () => clearTimeout(timer);
