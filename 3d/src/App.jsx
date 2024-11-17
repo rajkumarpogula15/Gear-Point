@@ -12,6 +12,7 @@ import AdminBikes from './pages/Admin/AdminBikes';
 import AdminAccessories from './pages/Admin/AdminAccessories';
 import LoadingScreen from './components/LoadingScreen';
 import AdminQueries from './pages/Admin/AdminQueries';
+import Review from './pages/Review';
 const U = () => {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -36,6 +37,7 @@ const U = () => {
         <Route path="/bikes" element={<Bikes />} />
         <Route path="/accessories" element={<Accessories />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/reviews" element={<Review />} />
         {/* Admin Routes */}
         <Route path="/admin" element={<AdminLayout />}>
           <Route path="dashboard" element={<AdminDashboard />} />
