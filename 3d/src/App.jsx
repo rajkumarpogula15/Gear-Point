@@ -1,9 +1,18 @@
-// import { BrowserRouter } from 'react-router-dom'
-import { About,Contact,Experience,Feedbacks,Hero,Navbar,Tech,Works,StarsCanvas } from './components'
-import Footer from './components/Footer'
-import LoadingScreen from './components/LoadingScreen';
 import React, { useState, useEffect } from 'react';
-const App=()=> {
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import Bikes from './pages/Bikes';
+import Accessories from './pages/Accessories';
+import ContactPage from './pages/ContactPage';
+import AdminLayout from './layouts/AdminLayout';
+import AdminDashboard from './pages/Admin/AdminDashboard';
+import Orders from './pages/Admin/Orders';
+import Customers from './pages/Admin/AdminCustomers';
+import AdminBikes from './pages/Admin/AdminBikes';
+import AdminAccessories from './pages/Admin/AdminAccessories';
+import LoadingScreen from './components/LoadingScreen';
+
+const U = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   // Simulating loading screen timeout
@@ -18,29 +27,29 @@ const App=()=> {
   if (isLoading) {
     return <LoadingScreen />;
   }
+
   return (
-    <>
+    <Router>
+      <Routes>
+        {/* Public Routes */}
+        <Route path="/" element={<Home />} />
+        <Route path="/bikes" element={<Bikes />} />
+        <Route path="/accessories" element={<Accessories />} />
+        <Route path="/contact" element={<ContactPage />} />
+        {/* Admin Routes */}
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route path="dashboard" element={<AdminDashboard />} />
+          <Route path="bikes" element={<AdminBikes />} />
+          <Route path="orders" element={<Orders />} />
+          <Route path="customers" element={<Customers />} />
+          <Route path="accessories" element={<AdminAccessories />} />
+        </Route>
 
-      <div className="relative z-0 bg-primary">
-        <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
-          <Navbar/>
-          <Hero />
-        </div>
-        <About/>
-        <Experience/>
-        {/* <Tech/> */}
-        {/* <Works/> */}
-        <Feedbacks/>
-        <div className="relative z-0">
-          <Contact/>  
-          <StarsCanvas/>
-          <Footer/>
-        </div>
+        {/* Fallback Route */}
+        <Route path="*" element={<h1>404 - Page Not Found</h1>} />
+      </Routes>
+    </Router>
+  );
+};
 
-
-      </div>
-    </>
-  )
-}
-
-export default App
+export default U;
