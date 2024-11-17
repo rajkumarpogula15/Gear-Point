@@ -72,7 +72,7 @@ const Contact = () => {
       <div className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden`}>
         <motion.div
           variants={slideIn("left", "tween", 0.2, 1)}
-          className="flex-[0.75] bg-black-100 p-8 rounded-2xl"
+          className="flex-[0.55] bg-black-100 p-8 rounded-2xl"
         >
           <p className={styles.sectionSubText}>Get in touch</p>
           <h3 className={styles.sectionHeadText}>Contact.</h3>
@@ -112,9 +112,9 @@ const Contact = () => {
               />
             </label>
 
-            <div className="flex  mt-4">
+            <div className="flex ml-5 mt-[-10px]">
               <div
-                className="transform scale-x-140 scale-y-100 origin-left rounded-lg overflow-hidden"
+                className="transform scale-x-120 scale-y-100 origin-left rounded-md overflow-hidden"
               >
                 <ReCAPTCHA
                   sitekey="6LfKZYEqAAAAALp_MZEioD5PKbeOGb--km21dueT"
@@ -123,14 +123,9 @@ const Contact = () => {
               </div>
             </div>
 
-            
-
-
-
-
             <button
               type="submit"
-              className="bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary"
+              className="bg-tertiary py-3 px-8 ml-28 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary"
             >
               {loading ? "Sending..." : "Send"}
             </button>
