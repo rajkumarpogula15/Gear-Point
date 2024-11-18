@@ -19,9 +19,10 @@ const Hero = () => {
           <h1 className={`${styles.heroHeadText} text-white`}>
           <img src={logo} alt='logo' className='w-25 h-25 object-contain' /><span className='text-[#915EFF]'>GearPoint</span>
           </h1>
-          <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-            bike Lovers
-          </p>
+          <p className={`${styles.heroSubText} mt-2 text-sm text-white`}>
+    Where Every Ride Begins
+</p>
+
         </div>
       </div>
 
