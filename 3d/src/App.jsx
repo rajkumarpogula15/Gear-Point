@@ -19,7 +19,7 @@ import UserBikes from './pages/FUser/UserBikes';
 import UserAccessories from './pages/Accessories';
 import UserReviews from './pages/FUser/UserReviews';
 import UserContact from './pages/FUser/UserContact';
-import UserCart from './pages/FUser/UserCart';
+import MyOrders from './pages/FUser/MyOrders';
 
 import UserDashboard from './pages/FUser/UserDashboard';
 import UserLayout from './layouts/UserLayout';
@@ -56,12 +56,12 @@ const App = () => {
           {/* User Routes with Outlet */}
           <Route path="/user" element={<UserLayout/>}>
             <Route path="/user" element={<UserHome />} />
-            {/* <Route path="dashboard" element={<UserDashboard />} /> */}
+            {/* <Route path="/user" element={<UserDashboard />} /> */}
             <Route path="bikes" element={<UserBikes />} />
             <Route path="reviews" element={<UserReviews />} />
             <Route path="accessories" element={<UserAccessories />} />
             {/* <Route path="contact" element={<UserContact />} /> */}
-            <Route path="cart" element={<UserCart />} />
+            <Route path="myorders" element={<MyOrders />} />
           </Route>
 
           {/* Admin Routes with Outlet */}

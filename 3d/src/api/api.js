@@ -19,6 +19,7 @@ const getOrders = () => axios.get(`${API}/orders/all`);
 const deleteOrder = (id) => axios.delete(`${API}/orders/delete/${id}`);
 const addOrder = (orderData) => axios.post(`${API}/orders/add`, orderData); // Add order
 const editOrder = (id, updatedData) => axios.put(`${API}/orders/edit/${id}`, updatedData); // Edit order
+const getUserOrders = (email) => axios.get(`${API}/orders/email/${email}`); // Get order by ID
 
 // User APIs
 const getUsers = () => axios.get(`${API}/users/all`);
@@ -38,19 +39,24 @@ export {
   addBike,
   editBike,
   deleteBike,
+
   getAccessories,
   addAccessory,
   editAccessory,
   deleteAccessory,
+
   getOrders,
+  getUserOrders,
   deleteOrder,
   addOrder, // Export addOrder
   editOrder,
+
   getUsers,
   deleteCustomer,
   addCustomer,
   Login,
   Register,
+
   getQueries,
   addQuery,
   editQuery,

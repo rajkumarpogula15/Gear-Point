@@ -62,8 +62,8 @@ import {
     //   title:"Contact"
     // },
     {
-      id:"/user/cart",
-      title:"Cart"
+      id:"/user/myorders",
+      title:"MyOrders"
     }
   ];
 

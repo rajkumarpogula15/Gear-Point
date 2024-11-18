@@ -1,13 +1,12 @@
 import React from 'react'
-import UserCart from './UserCart'
+import MyOrders from './MyOrders'
 
 
 const UserDashboard = () => {
-  return (
-    <>
-        <UserCart/>
-    </>
-  )
-}
+  const email = localStorage.getItem(userEmail);
+
+  return <h1>Welcome, {email || "Guest"}!</h1>;
+};
+
 
 export default UserDashboard

@@ -14,7 +14,28 @@ router.get('/all', async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 });
+// Get orders by email
+router.get('/email/:email', async (req, res) => {
+    // console.log(req);
+    const { email } = req.params;
+    // console.log(req.params.email);
+    // console.log(email);
 
+    try {
+        // Find all orders with the specified email
+        const orders = await Orders.find({ email });
+        // console.log(orders)
+        // If no orders found, return a 404
+        if (orders.length === 0) {
+            return res.status(404).json({ message: 'No orders found for this email' });
+        }
+
+        // Return the orders
+        res.status(200).json(orders);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+});
 // Add a new order
 router.post('/add', async (req, res) => {
     

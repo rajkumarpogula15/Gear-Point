@@ -19,6 +19,7 @@ const LoginModal = ({ onClose }) => {
       // console.log(response);
       const result = await JSON.stringify(response);
       if (response.status === 200){
+        // localStorage.setItem("userEmail", email);
         alert("Login successful!");
         onClose();
         navigate("/user");
