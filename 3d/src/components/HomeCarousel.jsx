@@ -100,7 +100,7 @@ const HomeCarousel = () => {
 
   return (
     <>
-      <div className='Meher'>   
+      <div  className='z-10'>   
         <header>
         </header>
         <div className="carousel">
@@ -189,7 +189,7 @@ const HomeCarousel = () => {
             <div className="time"></div>
         </div>
       </div>  
-      <script src="../components/slidercarousel/app.js"></script>
+
     </>
   )
 }
