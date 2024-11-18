@@ -27,7 +27,7 @@ const ExperienceCard = ({ experience }) => {
           <img
             src={experience.icon}
             alt={experience.company_name}
-            className='w-[60%] h-[60%] object-contain'
+            className='w-[80%] h-[80%] object-contain'
           />
         </div>
       }
@@ -61,10 +61,10 @@ const Experience = () => {
     <>
       <motion.div variants={textVariant()}>
         <p className={`${styles.sectionSubText} text-center`}>
-          website
+          Meet the
         </p>
         <h2 className={`${styles.sectionHeadText} text-center`}>
-          Reviews
+          Co-Founders
         </h2>
       </motion.div>
 

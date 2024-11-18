@@ -25,6 +25,11 @@ import {
     threejs,
   } from "../assets";
   
+
+import Umesh from '../assets/OurImages/umesh.jpg'
+import Rajkumar from '../assets/OurImages/raju.jpg'
+import meher from '../assets/OurImages/meher.jpg'
+
   export const navLinks = [
     {
       id: "bikes",
@@ -176,11 +181,11 @@ import {
   const experiences = [
 
     {
-      title: "Meher Prakash",
-      company_name: "Meta",
-      icon: meta,
+      title: "Umesh Bingi",
+      company_name: "CSE",
+      icon: Umesh,
       iconBg: "#E6DEDD",
-      date: "Jan 2023 - Present",
+      date: "22JJ1A0513",
       points: [
         "Developing and maintaining web applications using React.js and other related technologies.",
         "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
@@ -188,39 +193,36 @@ import {
         "Participating in code reviews and providing constructive feedback to other developers.",
       ],
     },
-
-
-
-      {
-        title: "CFO",
-        company_name: "Acme Co",
-        icon: "https://randomuser.me/api/portraits/women/4.jpg",
-        iconBg: "#E6DEDD",
-        date: "Date Not Provided", // Add specific dates if available
-        points: [
-          "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
-        ],
-      },
-      {
-        title: "COO",
-        company_name: "DEF Corp",
-        icon: "https://randomuser.me/api/portraits/men/5.jpg",
-        iconBg: "#E6DEDD",
-        date: "Date Not Provided", // Add specific dates if available
-        points: [
-          "I've never met a web developer who truly cares about their clients' success like Rick does.",
-        ],
-      },
-      {
-        title: "CTO",
-        company_name: "456 Enterprises",
-        icon: "https://randomuser.me/api/portraits/women/6.jpg",
-        iconBg: "#E6DEDD",
-        date: "Date Not Provided", // Add specific dates if available
-        points: [
-          "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
-        ],
-      },
+    {
+      title: "Koppula Meher Prakash",
+      company_name: "CSE",
+      icon: meher,
+      iconBg: "#E6DEDD",
+      date: "22JJ1A0536", // Add specific dates if available
+      points: [
+        "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
+      ],
+    },
+    {
+      title: "Rajkumar Pogula",
+      company_name: "CSE",
+      icon: Rajkumar,
+      iconBg: "#E6DEDD",
+      date: "22JJ1A0548", // Add specific dates if available
+      points: [
+        "I've never met a web developer who truly cares about their clients' success like Rick does.",
+      ],
+    },
+    {
+      title: "Ramu Bollepali",
+      company_name: "CSE",
+      icon: "https://randomuser.me/api/portraits/women/6.jpg",
+      iconBg: "#E6DEDD",
+      date: "22JJ1A0515", // Add specific dates if available
+      points: [
+        "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
+      ],
+    },
     
   ];
 
