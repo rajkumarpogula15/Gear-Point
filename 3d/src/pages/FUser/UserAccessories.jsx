@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { getBikes } from '../../api/api.js'; // API function for fetching accessories
+import { getAccessories } from '../../api/api.js'; // API function for fetching accessories
 import { TriangleAlert } from 'lucide-react';
 import LoadingScreen from '../../components/LoadingScreen';
-import AccessoryCard from '../../components/BikeCard'; // Assuming you have an AccessoryCard component
+import BikeCard from '../../components/BikeCard'; // Assuming you have an AccessoryCard component
 import Footer from '../../components/Footer';
 import { motion } from "framer-motion";  // Import motion from Framer Motion
 import { fadeIn } from "../../utils/motion"; // Assuming you have fadeIn animation variant defined
@@ -71,7 +71,7 @@ const UserAccessories = () => {
                             animate="show"
                             className="w-full sm:w-[360px] p-5"
                         >
-                            <AccessoryCard 
+                            <BikeCard 
                                 img={accessory.img || "https://via.placeholder.com/150"} 
                                 name={accessory.name} 
                                 price={accessory.price} 
