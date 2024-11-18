@@ -20,7 +20,7 @@ const DiscountBanner = () => {
   return (
     <>
       {showBanner && (
-        <div className="fixed inset-0 bg-black bg-opacity-90 flex justify-center items-center z-50 opacity-100">
+        <div className="fixed inset-0 bg-black bg-opacity-90 flex justify-center items-center z-20 opacity-100">
           <div className="relative w-5/6 max-w-4xl h-[80vh] bg-white rounded-lg overflow-hidden shadow-2xl">
             <section className="relative h-full">
               <img
