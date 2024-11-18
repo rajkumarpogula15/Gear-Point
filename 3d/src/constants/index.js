@@ -46,23 +46,23 @@ import {
   
   export const UserNavLinks = [
     {
-      id: "user/bikes",
+      id: "/user/bikes",
       title: "Bikes",
     },
     {
-      id: "user/accessories",
+      id: "/user/accessories",
       title: "Accessories",
     },
     {
-      id: "user/reviews",
+      id: "/user/reviews",
       title: "Reviews",
     },
+    // {
+    //   id:"/user/contact",
+    //   title:"Contact"
+    // },
     {
-      id:"user/contact",
-      title:"Contact"
-    },
-    {
-      id:"user/cart",
+      id:"/user/cart",
       title:"Cart"
     }
   ];

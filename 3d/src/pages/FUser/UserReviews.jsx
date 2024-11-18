@@ -5,7 +5,7 @@ import UserNavBar from './UserNavBar'
 const UserReview = () => {
   return (
     <>
-    <UserNavBar/> 
+    {/* <UserNavBar/>  */}
       <div className="relative z-0">
           <FeedbacksPage/>
           <Footer/>

@@ -6,7 +6,7 @@ import AccessoryCard from '../../components/BikeCard'; // Assuming you have an A
 import Footer from '../../components/Footer';
 import { motion } from "framer-motion";  // Import motion from Framer Motion
 import { fadeIn } from "../../utils/motion"; // Assuming you have fadeIn animation variant defined
-import UserNavBar from './UserNavBar';
+// import UserNavBar from './UserNavBar';
 
 const UserAccessories = () => {
     const [accessories, setAccessories] = useState(null);
@@ -59,7 +59,7 @@ const UserAccessories = () => {
 
     return (
         <>
-            <UserNavBar />
+            {/* <UserNavBar /> */}
             <div className="w-screen h-full flex justify-start items-start flex-row flex-wrap mt-[22vh] mb-12 gap-y-20 gap-x-2">
                 {accessories.map((accessory, index) => {
                     console.log(accessory.name, "Image URL:", accessory.img); // Debugging line

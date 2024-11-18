@@ -7,7 +7,7 @@ import UserNavBar from './UserNavBar'
 const ContactPage = () => {
   return (
     <>
-    <UserNavBar/> 
+    {/* <UserNavBar/>  */}
       <div className="relative z-0">
           <Contact/>  
           <StarsCanvas/>

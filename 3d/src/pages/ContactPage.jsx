@@ -7,7 +7,7 @@ import React from 'react'
 const ContactPage = () => {
   return (
     <>
-    <Navbar/> 
+    {/* <Navbar/>  */}
       <div className="relative z-0">
           <Contact/>  
           <StarsCanvas/>

@@ -5,7 +5,7 @@ import { About,Contact,Experience,FeedbacksPage,Hero,Navbar,Tech,Works,StarsCanv
 const Review = () => {
   return (
     <>
-    <Navbar/> 
+    {/* <Navbar/>  */}
       <div className="relative z-0">
           <FeedbacksPage/>
           <Footer/>

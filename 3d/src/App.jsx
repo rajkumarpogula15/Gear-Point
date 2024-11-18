@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import ErrorBoundary from './components/ErrorBoundary';
 import Home from './pages/Home';
 import Bikes from './pages/Bikes';
 import Accessories from './pages/Accessories';
@@ -13,25 +14,25 @@ import AdminAccessories from './pages/Admin/AdminAccessories';
 import LoadingScreen from './components/LoadingScreen';
 import AdminQueries from './pages/Admin/AdminQueries';
 import Review from './pages/Review';
-
 import UserHome from './pages/FUser/UserHome';
 import UserBikes from './pages/FUser/UserBikes';
-import UserAccessories from './pages/Accessories'
+import UserAccessories from './pages/Accessories';
 import UserReviews from './pages/FUser/UserReviews';
 import UserContact from './pages/FUser/UserContact';
-import UsercCart from './pages/FUser/UserCart';
+import UserCart from './pages/FUser/UserCart';
 
+import UserDashboard from './pages/FUser/UserDashboard';
+import UserLayout from './layouts/UserLayout';
 
+import WebLayout from './layouts/WebLayout';
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
 
-  // Simulating loading screen timeout
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 1000);
-
     return () => clearTimeout(timer);
   }, []);
 
@@ -40,39 +41,43 @@ const App = () => {
   }
 
   return (
-    <Router>
-      <Routes>
-        {/* Public Routes */}
-        <Route path="/" element={<Home />} />
-        <Route path="/bikes" element={<Bikes />} />
-        <Route path="/accessories" element={<Accessories />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="/reviews" element={<Review />} />
-        {/* <Route path="/user" element={<User />} /> */}
-        
-        {/* User Routes */}
-        <Route path="/user" element={<UserHome />} />
-        <Route path="/user/bikes" element={<UserBikes />} />
-        <Route path="/user/reviews" element={<UserReviews />} />
-        <Route path="/user/accessories" element={<UserAccessories />} />
-        <Route path="/user/contact" element={<UserContact />} />
-        <Route path="/user/cart" element={<UsercCart />} />
+    <ErrorBoundary>
+      <Router>
+        <Routes>
+          {/* Public Routes */}
+          <Route path="/" element={<WebLayout/>}>
+            <Route path="/" element={<Home />} />
+            <Route path="/bikes" element={<Bikes />} />
+            <Route path="/accessories" element={<Accessories />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/reviews" element={<Review />} />
+          </Route>
 
-        {/* Admin Routes */}
-        <Route path="/admin" element={<AdminLayout />}>
-          <Route path="dashboard" element={<AdminDashboard />} />
-          <Route path="bikes" element={<AdminBikes />} />
-          <Route path="orders" element={<Orders />} />
-          <Route path="customers" element={<Customers />} />
-          <Route path="accessories" element={<AdminAccessories />} />
-          <Route path="queries" element={<AdminQueries />} />
+          {/* User Routes with Outlet */}
+          <Route path="/user" element={<UserLayout/>}>
+            <Route path="dashboard" element={<UserDashboard />} />
+            <Route path="bikes" element={<UserBikes />} />
+            <Route path="reviews" element={<UserReviews />} />
+            <Route path="accessories" element={<UserAccessories />} />
+            {/* <Route path="contact" element={<UserContact />} /> */}
+            <Route path="cart" element={<UserCart />} />
+          </Route>
 
-        </Route>
+          {/* Admin Routes with Outlet */}
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route path="dashboard" element={<AdminDashboard />} />
+            <Route path="bikes" element={<AdminBikes />} />
+            <Route path="orders" element={<Orders />} />
+            <Route path="customers" element={<Customers />} />
+            <Route path="accessories" element={<AdminAccessories />} />
+            <Route path="queries" element={<AdminQueries />} />
+          </Route>
 
-        {/* Fallback Route */}
-        <Route path="*" element={<h1>404 - Page Not Found</h1>} />
-      </Routes>
-    </Router>
+          {/* Fallback Route */}
+          <Route path="*" element={<h1>404 - Page Not Found</h1>} />
+        </Routes>
+      </Router>
+    </ErrorBoundary>
   );
 };
 

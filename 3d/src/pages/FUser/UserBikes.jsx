@@ -63,7 +63,7 @@ const UserBikes = () => {
 
     return (
         <>
-            <UserNavBar />
+            {/* <UserNavBar /> */}
             <DiscountBanner />
             <div className="App">
                 <ScrollingText text="Start your journey with GearPoint, where every ride begins! Enjoy up to 5% off on your first order by applying the coupon code 'JNTUHUCEJ'. Don’t wait to Gearup with GearPoint today!" />
