@@ -46,8 +46,8 @@ const Footer = () => {
         </div>
 
         <p className="mt-6 max-w-md text-center leading-relaxed text-gray-500 sm:max-w-xs sm:text-left">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt consequuntur amet culpa
-          cum itaque neque.
+        Welcome to GearPoint!
+        GearPoint is your ultimate destination for premium bikes and accessories. Designed with a user-friendly interface and robust admin tools, GearPoint offers a seamless experience for enthusiasts and administrators alike.
         </p>
 
         <ul className="mt-8 flex justify-center gap-6 sm:justify-start md:gap-8">
@@ -130,24 +130,24 @@ const Footer = () => {
           <ul className="mt-8 space-y-4 text-sm">
             <li>
               <a className="text-white-700 opacity-50 transition hover:text-white-700/75" href="#">
-                Company History
+                Bingi Umesh
               </a>
             </li>
 
             <li>
               <a className="text-white-700 opacity-50 transition hover:text-white-700/75" href="#">
-                Meet the Team
+                Koppula Meher Prakash
               </a>
             </li>
 
             <li>
               <a className="text-white-700 opacity-50 transition hover:text-white-700/75" href="#">
-                Employee Handbook
+                Pogula Rajkumar
               </a>
             </li>
 
             <li>
-              <a className="text-white-700 opacity-50 transition hover:text-white-700/75" href="#"> Careers </a>
+              <a className="text-white-700 opacity-50 transition hover:text-white-700/75" href="#"> Bollepali Ramu </a>
             </li>
           </ul>
         </div>
@@ -158,20 +158,20 @@ const Footer = () => {
           <ul className="mt-8 space-y-4 text-sm">
             <li>
               <a className="text-white-700 opacity-50 transition hover:text-white-700/75" href="#">
-                Web Development
+              Free shipping
               </a>
             </li>
 
             <li>
-              <a className="text-white-700 opacity-50 transition hover:text-white-700/75" href="#"> Web Design </a>
+              <a className="text-white-700 opacity-50 transition hover:text-white-700/75" href="#"> EMI </a>
             </li>
 
             <li>
-              <a className="text-white-700 opacity-50 transition hover:text-white-700/75" href="#"> Marketing </a>
+              <a className="text-white-700 opacity-50 transition hover:text-white-700/75" href="#"> 24/7 online support </a>
             </li>
 
             <li>
-              <a className="text-white-700 opacity-50 transition hover:text-white-700/75" href="#"> Google Ads </a>
+              <a className="text-white-700 opacity-50 transition hover:text-white-700/75" href="#"> Cash on Delivery </a>
             </li>
           </ul>
         </div>
@@ -181,29 +181,18 @@ const Footer = () => {
 
           <ul className="mt-8 space-y-4 text-sm">
             <li>
-              <a className="text-white-700 opacity-50 transition hover:text-white-700/75" href="#"> FAQs </a>
+              <a className="text-white-700 opacity-50 transition hover:text-white-700/75" href="https://www.linkedin.com/in/umesh-bingi-03u/"> Linked IN </a>
             </li>
 
             <li>
-              <a className="text-white-700 opacity-50 transition hover:text-white-700/75" href="#"> Support </a>
+              <a className="text-white-700 opacity-50 transition hover:text-white-700/75" href="https://www.linkedin.com/in/meher-prakash-4634a925b/"> Linked IN </a>
             </li>
 
             <li>
-              <a
-                className="group flex justify-center gap-1.5 ltr:sm:justify-start rtl:sm:justify-end"
-                href="#"
-              >
-                <span className="text-white-700 opacity-50 transition hover:text-white-700/75 ml-[-93px]">
-                  Live Chat
-                </span>
-
-                <span className="relative flex size-2">
-                  <span
-                    className="absolute inline-flex h-full w-full animate-ping rounded-full bg-teal-400 opacity-75"
-                  ></span>
-                  <span className="relative inline-flex size-2 rounded-full bg-teal-500"></span>
-                </span>
-              </a>
+              <a className="text-white-700 opacity-50 transition hover:text-white-700/75" href="https://www.linkedin.com/in/rajkumar-pogula-250317258">Linked IN</a>
+            </li>
+            <li>
+              <a className="text-white-700 opacity-50 transition hover:text-white-700/75" href="#"> Linked IN </a>
             </li>
           </ul>
         </div>
@@ -232,7 +221,7 @@ const Footer = () => {
                   />
                 </svg>
 
-                <span className="ml-[-90px] text-white-700 opacity-50 transition hover:text-white-700/75">john@doe.com</span>
+                <span className="ml-[-90px] text-white-700 opacity-50 transition hover:text-white-700/75">GearPointURMR@gmail.com</span>
               </a>
             </li>
 
@@ -256,7 +245,7 @@ const Footer = () => {
                   />
                 </svg>
 
-                <span className="ml-[-120px] text-white-700 opacity-50 transition hover:text-white-700/75">0123456789</span>
+                <span className="ml-[-120px] text-white-700 opacity-50 transition hover:text-white-700/75">9913364815</span>
               </a>
             </li>
 
@@ -284,7 +273,7 @@ const Footer = () => {
               </svg>
 
               <address className="ml-[-28px] text-white-700 opacity-50 transition hover:text-white-700/75">
-                213 Lane, London, United Kingdom
+                JNTUH UCEJ, jagitial 505501
               </address>
             </li>
           </ul>

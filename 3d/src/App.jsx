@@ -41,44 +41,45 @@ const App = () => {
   }
 
   return (
-    <ErrorBoundary>
-      <Router>
-        <Routes>
-          {/* Public Routes */}
-          <Route path="/" element={<WebLayout/>}>
-            <Route path="/" element={<Home />} />
-            <Route path="/bikes" element={<Bikes />} />
-            <Route path="/accessories" element={<Accessories />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/reviews" element={<Review />} />
-          </Route>
 
-          {/* User Routes with Outlet */}
-          <Route path="/user" element={<UserLayout/>}>
-            <Route path="/user" element={<UserHome />} />
-            {/* <Route path="/user" element={<UserDashboard />} /> */}
-            <Route path="bikes" element={<UserBikes />} />
-            <Route path="reviews" element={<UserReviews />} />
-            <Route path="accessories" element={<UserAccessories />} />
-            {/* <Route path="contact" element={<UserContact />} /> */}
-            <Route path="myorders" element={<MyOrders />} />
-          </Route>
+      <ErrorBoundary >
+        <Router>
+          <Routes>
+            {/* Public Routes */}
+            <Route path="/" element={<WebLayout/>}>
+              <Route path="/" element={<Home />} />
+              <Route path="/bikes" element={<Bikes />} />
+              <Route path="/accessories" element={<Accessories />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/reviews" element={<Review />} />
+            </Route>
 
-          {/* Admin Routes with Outlet */}
-          <Route path="/admin" element={<AdminLayout />}>
-            <Route path="dashboard" element={<AdminDashboard />} />
-            <Route path="bikes" element={<AdminBikes />} />
-            <Route path="orders" element={<Orders />} />
-            <Route path="customers" element={<Customers />} />
-            <Route path="accessories" element={<AdminAccessories />} />
-            <Route path="queries" element={<AdminQueries />} />
-          </Route>
+            {/* User Routes with Outlet */}
+            <Route path="/user" element={<UserLayout/>}>
+              <Route path="/user" element={<UserHome />} />
+              {/* <Route path="/user" element={<UserDashboard />} /> */}
+              <Route path="bikes" element={<UserBikes />} />
+              <Route path="reviews" element={<UserReviews />} />
+              <Route path="accessories" element={<UserAccessories />} />
+              {/* <Route path="contact" element={<UserContact />} /> */}
+              <Route path="myorders" element={<MyOrders />} />
+            </Route>
 
-          {/* Fallback Route */}
-          <Route path="*" element={<h1>404 - Page Not Found</h1>} />
-        </Routes>
-      </Router>
-    </ErrorBoundary>
+            {/* Admin Routes with Outlet */}
+            <Route path="/admin" element={<AdminLayout />}>
+              <Route path="dashboard" element={<AdminDashboard />} />
+              <Route path="bikes" element={<AdminBikes />} />
+              <Route path="orders" element={<Orders />} />
+              <Route path="customers" element={<Customers />} />
+              <Route path="accessories" element={<AdminAccessories />} />
+              <Route path="queries" element={<AdminQueries />} />
+            </Route>
+
+            {/* Fallback Route */}
+            <Route path="*" element={<h1>404 - Page Not Found</h1>} />
+          </Routes>
+        </Router>
+      </ErrorBoundary>
   );
 };
 

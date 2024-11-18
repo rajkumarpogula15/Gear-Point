@@ -65,6 +65,8 @@ const Bikes = () => {
 
     return (
         <>
+        <div className='bg-hero-pattern bg-cover bg-no-repeat bg-center'>
+
             {/* <Navbar /> */}
             {/* <DiscountBanner /> */}
             <div className="App">
@@ -75,11 +77,11 @@ const Bikes = () => {
                 {bikes.map((bike, index) => {
                     return (
                         <motion.div
-                            key={bike._id} 
-                            variants={fadeIn("right", "spring", index * 0.5, 0.75)} 
-                            initial="hidden"
-                            animate="show"
-                            className="w-full sm:w-[360px] p-5"
+                        key={bike._id} 
+                        variants={fadeIn("right", "spring", index * 0.5, 0.75)} 
+                        initial="hidden"
+                        animate="show"
+                        className="w-full sm:w-[360px] p-5"
                         >
                             <ProductCard
                                 img={bike.img || "https://via.placeholder.com/150"}
@@ -88,13 +90,14 @@ const Bikes = () => {
                                 brand={bike.brand || "Unknown"}
                                 rating={bike.rating || 0}
                                 id={bike._id}
-                            />
+                                />
                         </motion.div>
                     );
                 })}
             </div>
 
             <Footer />
+        </div>
         </>
     );
 };

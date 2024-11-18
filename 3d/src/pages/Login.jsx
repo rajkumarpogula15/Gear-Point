@@ -64,7 +64,7 @@ const Login = () => {
         }
       `}} />
 
-      <div className="login-container">
+      <div className="login-container ">
         <h2>Login</h2>
         <form action="login.php" method="post">
           <input type="text" name="username" placeholder="Username" required />

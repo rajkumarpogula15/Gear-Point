@@ -6,7 +6,7 @@ const Review = () => {
   return (
     <>
     {/* <Navbar/>  */}
-      <div className="relative z-0">
+      <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center relative z-0">
           <FeedbacksPage/>
           <Footer/>
         </div>

@@ -59,7 +59,7 @@ const Accessories = () => {
     return (
         <>
             {/* <Navbar /> */}
-            <div className="w-screen h-full flex justify-start items-start flex-row flex-wrap mt-[22vh] ml-1 mb-8  gap-x-3">
+            <div className="w-screen h-full flex justify-start items-start flex-row flex-wrap mt-[22vh] ml-1 mb-8  gap-x-3 bg-hero-pattern bg-cover bg-no-repeat bg-center">
                 {accessories.map((accessory, index) => {
                     // console.log(accessory.name, "Image URL:", accessory.img); // Debugging line
                     return (

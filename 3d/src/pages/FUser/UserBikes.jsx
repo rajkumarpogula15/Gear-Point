@@ -63,6 +63,8 @@ const UserBikes = () => {
 
     return (
         <>
+        <div className='bg-hero-pattern bg-cover bg-no-repeat bg-center'>
+
             {/* <UserNavBar /> */}
             {/* <DiscountBanner /> */}
             <div className="App">
@@ -74,11 +76,11 @@ const UserBikes = () => {
                     // console.log(bike.title, "Image URL:", bike.img); // Debugging line
                     return (
                         <motion.div
-                            key={bike._id} 
-                            variants={fadeIn("right", "spring", index * 0.5, 0.75)} 
-                            initial="hidden"
-                            animate="show"
-                            className="w-full sm:w-[360px] p-5"
+                        key={bike._id} 
+                        variants={fadeIn("right", "spring", index * 0.5, 0.75)} 
+                        initial="hidden"
+                        animate="show"
+                        className="w-full sm:w-[360px] p-5"
                         >
                             <BikeCard
                                 id={bike._id}
@@ -87,13 +89,14 @@ const UserBikes = () => {
                                 price={bike.price}
                                 brand={bike.brand || "Unknown"}
                                 rating={bike.rating || 0}
-                            />
+                                />
                         </motion.div>
                     );
                 })}
             </div>
 
             <Footer />
+        </div>
         </>
     );
 };

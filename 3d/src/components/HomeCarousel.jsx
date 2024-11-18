@@ -142,9 +142,9 @@ const HomeCarousel = () => {
                 </div>
             </div>
             {/* <!-- list thumnail --> */}
-            <div className="thumbnail">
-                <div className="item">
-                    <img src="../../src/assets/img-1.webp"/>
+            <div className="thumbnail h-[15vh]">
+                <div className="item ">
+                    <img src="../../src/assets/img-1.webp"className='h-[23vh]'/>
                     <div className="content">
                         <div className="title">
                             Name Slider
