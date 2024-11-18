@@ -16,7 +16,7 @@ import AdminQueries from './pages/Admin/AdminQueries';
 import Review from './pages/Review';
 import UserHome from './pages/FUser/UserHome';
 import UserBikes from './pages/FUser/UserBikes';
-import UserAccessories from './pages/Accessories';
+import UserAccessories from './pages/FUser/UserAccessories';
 import UserReviews from './pages/FUser/UserReviews';
 import UserContact from './pages/FUser/UserContact';
 import MyOrders from './pages/FUser/MyOrders';
