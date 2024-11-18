@@ -64,14 +64,14 @@ const UserBikes = () => {
     return (
         <>
             {/* <UserNavBar /> */}
-            <DiscountBanner />
+            {/* <DiscountBanner /> */}
             <div className="App">
                 <ScrollingText text="Start your journey with GearPoint, where every ride begins! Enjoy up to 5% off on your first order by applying the coupon code 'JNTUHUCEJ'. Don’t wait to Gearup with GearPoint today!" />
             </div>
             <HomeCarousel />
             <div className="w-screen h-full flex justify-start items-start flex-row flex-wrap gap-y-20 ml-1 mt-[8vh] mb-8  gap-x-3">
                 {bikes.map((bike, index) => {
-                    console.log(bike.title, "Image URL:", bike.img); // Debugging line
+                    // console.log(bike.title, "Image URL:", bike.img); // Debugging line
                     return (
                         <motion.div
                             key={bike._id} 
@@ -81,6 +81,7 @@ const UserBikes = () => {
                             className="w-full sm:w-[360px] p-5"
                         >
                             <BikeCard
+                                id={bike._id}
                                 img={bike.img || "https://via.placeholder.com/150"}
                                 name={bike.title}
                                 price={bike.price}

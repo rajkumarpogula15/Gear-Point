@@ -62,7 +62,7 @@ const UserAccessories = () => {
             {/* <UserNavBar /> */}
             <div className="w-screen h-full flex justify-start items-start flex-row flex-wrap mt-[22vh] ml-1 mb-8  gap-x-3">
                 {accessories.map((accessory, index) => {
-                    console.log(accessory.name, "Image URL:", accessory.img); // Debugging line
+                    // console.log(accessory.name, "Image URL:", accessory.img); // Debugging line
                     return (
                         <motion.div
                             key={accessory._id}
