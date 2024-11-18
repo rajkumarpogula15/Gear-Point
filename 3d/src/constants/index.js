@@ -255,7 +255,7 @@ import {
   const Reviewsinfo = [
     {
       testimonial:
-        "",
+        "Top-Notch Bike Selection!GearPoint offers a fantastic variety of sports, electric, and petrol bikes. The staff is knowledgeable and helped me find the perfect bike for my needs. Highly recommend!",
       name: "Prabhas",
       designation: "",
       company: "Mogalthur",
@@ -263,44 +263,69 @@ import {
     },
     {
       testimonial:
-        "",
+        "Great Bikes, Smooth Process!The range of bikes at GearPoint is impressive. I purchased an electric bike, and the whole process was smooth, from browsing to delivery. Love my new ride! ",
       name: "Ram charan",
       designation: "",
-      company: "DEF Corp",
-      image: "https://www.bing.com/images/blob?bcid=S3SdfVCTycIHrTjlFvpMYNmBITA7.....zg",
+      company: "Jagitial",
+      image: "https://m.media-amazon.com/images/M/MV5BMmNkNGIyMjEtZDJkNy00ZTBkLTg3MWUtMDBjM2ZmZGMyYTVlXkEyXkFqcGdeQXVyNDI3NjU1NzQ@._V1_.jpg",
     },
     {
       testimonial:
-        "",
-      name: "Lisa Wang",
-      designation: "CTO",
-      company: "456 Enterprises",
-      image: "https://randomuser.me/api/portraits/women/6.jpg",
+        "Amazing Store for Bike Lovers!   Whether you're into sports bikes or eco-friendly electric options, GearPoint has it all. Their customer support team is helpful, and the quality of bikes is outstanding",
+      name: "Allu Arjun",
+      designation: "",
+      company: "warangal",
+      image: "https://th.bing.com/th/id/OIP.Th19Zzch381gYZkNuoUYcQHaKQ?rs=1&pid=ImgDetMain",
     },
     {
       testimonial:
-        "",
-      name: "Sara Lee",
-      designation: "CFO",
-      company: "Acme Co",
-      image: "https://randomuser.me/api/portraits/women/4.jpg",
+        "High-Quality Bikes, Great Service!   Bought a petrol bike from GearPoint, and it’s been an incredible experience. The bike runs perfectly, and the team ensured I got all the details before purchasing.  ",
+      name: "Pawan Kalyan",
+      designation: "",
+      company: "Vishakpatnam",
+      image: "https://th.bing.com/th/id/OIP.-naKkSbY1j8j5mWS2zIf6QHaKX?rs=1&pid=ImgDetMain",
     },
     {
       testimonial:
-        "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
-      name: "Sara Lee",
-      designation: "CFO",
-      company: "Acme Co",
-      image: "https://randomuser.me/api/portraits/women/4.jpg",
+        "GearPoint Delivers Excellence!   From sleek sports bikes to powerful petrol ones, GearPoint’s collection is unmatched. I got my dream bike here and couldn’t be happier with the performance!",
+      name: "Naomi Scott",
+      designation: "",
+      company: "England",
+      image: "https://m.media-amazon.com/images/M/MV5BY2EzOTA5OGItNjljZi00YWQ2LWFlMWEtNzE0NDFlMzVjYzE5XkEyXkFqcGdeQXVyNDU1NjUxOTc@._V1_FMjpg_UX1000_.jpg",
     },
     {
       testimonial:
-        "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
-      name: "Sara Lee",
-      designation: "CFO",
-      company: "Acme Co",
-      image: "https://randomuser.me/api/portraits/women/4.jpg",
+        "Hero Optima HX:-A budget-friendly electric scooter with an 82 km range and simple design. Ideal for short commutes but lacks advanced features.",
+      name: "NTR Jr",
+      designation: "",
+      company: "Manglore",
+      image: "https://th.bing.com/th/id/OIP.ZjKrnodPLNWNFf3odrr4MwHaLH?rs=1&pid=ImgDetMain",
     },
+    {
+      testimonial:
+        "Suzuki Burgman Electric:-Spacious and comfortable with a maxi-scooter feel, promising a long range and premium design. Availability might be limited in some regions.",
+      name: "RDJ",
+      designation: "",
+      company: "New York",
+      image: "https://th.bing.com/th/id/OIP.kgjrMHqK871PeFba8BuTwwHaLH?rs=1&pid=ImgDetMain",
+    },
+    {
+      testimonial:
+        "Bajaj Chetak Electric:-A premium electric scooter with a durable metal body, 108 km range, and advanced features like regenerative braking. Slightly expensive but worth it for its quality.  ",
+      name: "Siddu",
+      designation: "",
+      company: "Medchal",
+      image: "https://images.filmibeat.com/ph-big/2024/01/siddu-jonnalagadda_1704428390150.jpg",
+    },
+    {
+      testimonial:
+        "Yamaha Fascino 125 Fi Hybrid:-Stylish and fuel-efficient, the hybrid engine offers great mileage and smooth performance. Lightweight and easy to handle but lacks power on inclines.",
+      name: "Tom Crusie",
+      designation: "",
+      company: "Paris",
+      image: "https://image.tmdb.org/t/p/original/2Dkx4uuGoWFrPSitxdikv9z5azR.jpg",
+    },
+
   ];
   
   const projects = [
