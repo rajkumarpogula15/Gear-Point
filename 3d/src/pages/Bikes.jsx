@@ -24,7 +24,6 @@ const Bikes = () => {
         async function fetchData() {
             try {
                 const res = await getBikes();
-                console.log("API Response:", res); // Debugging line
 
                 if (res.status === 200 && Array.isArray(res.data)) {
                     setBikes(res.data);
@@ -67,14 +66,13 @@ const Bikes = () => {
     return (
         <>
             {/* <Navbar /> */}
-            <DiscountBanner />
+            {/* <DiscountBanner /> */}
             <div className="App">
                 <ScrollingText text="Start your journey with GearPoint, where every ride begins! Enjoy up to 5% off on your first order by applying the coupon code 'JNTUHUCEJ'. Don’t wait to Gearup with GearPoint today!" />
             </div>
             <HomeCarousel />
             <div className="w-screen h-full flex justify-start items-start flex-row flex-wrap mt-[8vh] mb-12 gap-y-20 gap-x-2">
                 {bikes.map((bike, index) => {
-                    console.log(bike.title, "Image URL:", bike.img); // Debugging line
                     return (
                         <motion.div
                             key={bike._id} 
@@ -89,6 +87,7 @@ const Bikes = () => {
                                 price={bike.price}
                                 brand={bike.brand || "Unknown"}
                                 rating={bike.rating || 0}
+                                id={bike._id}
                             />
                         </motion.div>
                     );

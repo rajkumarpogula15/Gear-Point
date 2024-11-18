@@ -61,7 +61,7 @@ router.post('/login', async (req, res) => {
         if (!checkpassword) {
             return res.status(500).json({ message: `Invalid Password` })
         }
-        console.log("Sucessfully email checked");
+        // console.log("Sucessfully email checked");
         //Generate JWT
         // const secretkey = '1811321'
         // const token = jwt.sign({ email: email, exp: Math.floor(Date.now() / 1000) + (60 * 60 * 24 * 7) }, secretkey)
