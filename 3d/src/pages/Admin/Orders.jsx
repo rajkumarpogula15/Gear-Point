@@ -32,8 +32,11 @@ const Orders = () => {
           <thead className="bg-gray-800 text-white text-left">
             <tr>
               <th className="p-4 text-sm font-medium uppercase tracking-wide">Order ID</th>
-              <th className="p-4 text-sm font-medium uppercase tracking-wide">User ID</th>
-              <th className="p-4 text-sm font-medium uppercase tracking-wide">Total</th>
+              <th className="p-4 text-sm font-medium uppercase tracking-wide">User Email</th>
+              <th className="p-4 text-sm font-medium uppercase tracking-wide">Phone</th>
+              <th className="p-4 text-sm font-medium uppercase tracking-wide">Product ID</th>
+              <th className="p-4 text-sm font-medium uppercase tracking-wide">Address</th>
+              <th className="p-4 text-sm font-medium uppercase tracking-wide">Price</th>
               <th className="p-4 text-sm font-medium uppercase tracking-wide text-center">
                 Actions
               </th>
@@ -42,13 +45,13 @@ const Orders = () => {
           <tbody>
             {error ? (
               <tr>
-                <td colSpan="4" className="p-6 text-center text-red-600 font-semibold">
+                <td colSpan="7" className="p-6 text-center text-red-600 font-semibold">
                   {error}
                 </td>
               </tr>
             ) : orders.length === 0 ? (
               <tr>
-                <td colSpan="4" className="p-6 text-center text-gray-500">
+                <td colSpan="7" className="p-6 text-center text-gray-500">
                   No Orders Available
                 </td>
               </tr>
@@ -62,10 +65,19 @@ const Orders = () => {
                     {order._id}
                   </td>
                   <td className="p-4 border-t border-gray-200 text-gray-700 text-sm">
-                    {order.uid}
+                    {order.email}
+                  </td>
+                  <td className="p-4 border-t border-gray-200 text-gray-700 text-sm">
+                    {order.phone}
+                  </td>
+                  <td className="p-4 border-t border-gray-200 text-gray-700 text-sm">
+                    {order.pid}
+                  </td>
+                  <td className="p-4 border-t border-gray-200 text-gray-700 text-sm">
+                    {order.address}
                   </td>
                   <td className="p-4 border-t border-gray-200 text-gray-700 text-sm font-bold">
-                    ${order.total}
+                    ${order.price}
                   </td>
                   <td className="p-4 border-t border-gray-200 flex justify-center">
                     <button

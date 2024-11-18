@@ -17,6 +17,8 @@ const deleteAccessory = (id) => axios.delete(`${API}/accessories/delete/${id}`);
 // Order APIs
 const getOrders = () => axios.get(`${API}/orders/all`);
 const deleteOrder = (id) => axios.delete(`${API}/orders/delete/${id}`);
+const addOrder = (orderData) => axios.post(`${API}/orders/add`, orderData); // Add order
+const editOrder = (id, updatedData) => axios.put(`${API}/orders/edit/${id}`, updatedData); // Edit order
 
 // User APIs
 const getUsers = () => axios.get(`${API}/users/all`);
@@ -42,6 +44,8 @@ export {
   deleteAccessory,
   getOrders,
   deleteOrder,
+  addOrder, // Export addOrder
+  editOrder,
   getUsers,
   deleteCustomer,
   addCustomer,
