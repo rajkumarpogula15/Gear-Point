@@ -5,7 +5,6 @@ import { styles } from "../styles";
 import { EarthCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
-import { LoginModal, RegisterModal } from '.././components/loginregister.jsx'
 
 import Swal from 'sweetalert2';
 import ReCAPTCHA from "react-google-recaptcha";
@@ -24,10 +23,56 @@ const Contact = () => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
   };
-  onSubmit= ()=>{
-    {showLogin && <LoginModal onClose={() => setShowLogin(false)} />}
-  }
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    setLoading(true); // Set loading to true
   
+    const formData = new FormData(event.target);
+    formData.append("access_key", "05176a54-0a32-44a1-b11e-42dc0b892079");
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+  
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: json
+      });
+      const result = await res.json();
+  
+      if (result.success) {
+        Swal.fire({
+          title: "Good job!",
+          text: "Your message has been sent!",
+          icon: "success"
+        });
+        setForm({ name: "", email: "", message: "" }); // Clear the form
+      } else {
+        Swal.fire({
+          title: "Oops!",
+          text: "Something went wrong.",
+          icon: "error"
+        });
+      }
+    } catch (error) {
+      Swal.fire({
+        title: "Error!",
+        text: "An error occurred while sending your message.",
+        icon: "error"
+      });
+    } finally {
+      setLoading(false); // Set loading back to false
+    }
+  };
+  
+  const [recaptchaToken, setRecaptchaToken] = useState(null);
+  const onRecaptchaChange = (token) => {
+    setRecaptchaToken(token);
+  };
+
   return (
     <>
       <div className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden`}>
@@ -79,7 +124,7 @@ const Contact = () => {
               >
                 <ReCAPTCHA
                   sitekey="6LfKZYEqAAAAALp_MZEioD5PKbeOGb--km21dueT"
-                  onChange={onChange}
+                  onChange={onRecaptchaChange}
                 />
               </div>
             </div>

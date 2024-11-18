@@ -72,7 +72,7 @@ const Bikes = () => {
                 <ScrollingText text="Start your journey with GearPoint, where every ride begins! Enjoy up to 5% off on your first order by applying the coupon code 'JNTUHUCEJ'. Don’t wait to Gearup with GearPoint today!" />
             </div>
             <HomeCarousel />
-            <div className="w-screen h-full flex justify-start items-start flex-row flex-wrap mt-[8vh] mb-12 gap-y-20 gap-x-2">
+            <div className="w-screen h-full flex justify-start items-start flex-row flex-wrap ml-1 mt-[8vh] mb-8  gap-x-3">
                 {bikes.map((bike, index) => {
                     console.log(bike.title, "Image URL:", bike.img); // Debugging line
                     return (
