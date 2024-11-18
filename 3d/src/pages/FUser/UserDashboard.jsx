@@ -1,11 +1,11 @@
 import React from 'react'
-import UserHome from './UserHome'
+import UserCart from './UserCart'
 
 
 const UserDashboard = () => {
   return (
     <>
-        <UserHome/>
+        <UserCart/>
     </>
   )
 }

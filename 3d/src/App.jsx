@@ -55,7 +55,8 @@ const App = () => {
 
           {/* User Routes with Outlet */}
           <Route path="/user" element={<UserLayout/>}>
-            <Route path="dashboard" element={<UserDashboard />} />
+            <Route path="/user" element={<UserHome />} />
+            {/* <Route path="dashboard" element={<UserDashboard />} /> */}
             <Route path="bikes" element={<UserBikes />} />
             <Route path="reviews" element={<UserReviews />} />
             <Route path="accessories" element={<UserAccessories />} />

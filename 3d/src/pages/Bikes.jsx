@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import BikeCard from '../components/BikeCard'; // Updated import for the BikeCard component
+import ProductCard from '../components/HomeProducts'; // Updated import for the BikeCard component
 import { getBikes } from '../api/api'; // API function for fetching bikes
 import { Home, Loader2, TriangleAlert } from 'lucide-react';
 import LoadingScreen from '../components/LoadingScreen';
@@ -81,7 +81,7 @@ const Bikes = () => {
                             animate="show"
                             className="w-full sm:w-[360px] p-5"
                         >
-                            <BikeCard
+                            <ProductCard
                                 img={bike.img || "https://via.placeholder.com/150"}
                                 name={bike.title}
                                 price={bike.price}

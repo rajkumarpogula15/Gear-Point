@@ -3,7 +3,7 @@ import { getAccessories } from '../api/api'; // API function for fetching access
 import { TriangleAlert } from 'lucide-react';
 import LoadingScreen from '../components/LoadingScreen';
 import { Navbar } from '../components';
-import AccessoryCard from '../components/BikeCard'; // Assuming you have an AccessoryCard component
+import AccessoryCard from '../components/HomeProducts'; // Assuming you have an AccessoryCard component
 import Footer from '../components/Footer';
 import { motion } from "framer-motion";  // Import motion from Framer Motion
 import { fadeIn } from "../utils/motion"; // Assuming you have fadeIn animation variant defined
