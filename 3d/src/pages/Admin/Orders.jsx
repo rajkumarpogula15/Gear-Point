@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Ban } from "lucide-react";
-import { getOrders } from "../../api/api";
+import { getOrders, deleteOrder } from "../../api/api";
+import { toast } from 'sonner';
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
@@ -24,6 +25,18 @@ const Orders = () => {
     fetchData();
   }, []);
 
+  const handleBanOrder = async (id) => {
+    try {
+      await deleteOrder(id);
+      setOrders((prevOrders) => prevOrders.filter((order) => order._id !== id));
+      toast.success("Order canceled successfully!");
+    } catch (error) {
+      console.error("Error canceling order:", error);
+      setError("An error occurred while canceling the order.");
+      toast.error("Failed to cancel order.");
+    }
+  };
+
   return (
     <div className="w-full h-full flex flex-col justify-start items-center p-6 bg-gray-100 rounded-lg shadow-lg">
       <h1 className="text-4xl font-extrabold text-gray-800 mb-8">Order Management</h1>
@@ -34,7 +47,7 @@ const Orders = () => {
               <th className="p-4 text-sm font-medium uppercase tracking-wide">Order ID</th>
               <th className="p-4 text-sm font-medium uppercase tracking-wide">User Email</th>
               <th className="p-4 text-sm font-medium uppercase tracking-wide">Phone</th>
-              <th className="p-4 text-sm font-medium uppercase tracking-wide">Product ID</th>
+              <th className="p-4 text-sm font-medium uppercase tracking-wide">Product Name</th>
               <th className="p-4 text-sm font-medium uppercase tracking-wide">Address</th>
               <th className="p-4 text-sm font-medium uppercase tracking-wide">Price</th>
               <th className="p-4 text-sm font-medium uppercase tracking-wide text-center">
@@ -71,7 +84,7 @@ const Orders = () => {
                     {order.phone}
                   </td>
                   <td className="p-4 border-t border-gray-200 text-gray-700 text-sm">
-                    {order.pid}
+                    {order.name}
                   </td>
                   <td className="p-4 border-t border-gray-200 text-gray-700 text-sm">
                     {order.address}
@@ -83,6 +96,7 @@ const Orders = () => {
                     <button
                       className="flex items-center justify-center w-10 h-10 rounded-full bg-red-50 text-red-600 hover:bg-red-600 hover:text-white transition-transform duration-200 transform hover:scale-105"
                       title="Cancel Order"
+                      onClick={() => handleBanOrder(order._id)}
                     >
                       <Ban />
                     </button>

@@ -72,6 +72,7 @@ const UserAccessories = () => {
                             className="w-full sm:w-[360px] p-5"
                         >
                             <BikeCard 
+                                id={accessory._id}
                                 img={accessory.img || "https://via.placeholder.com/150"} 
                                 name={accessory.name} 
                                 price={accessory.price} 

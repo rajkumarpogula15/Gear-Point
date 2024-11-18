@@ -40,7 +40,7 @@ router.get('/email/:email', async (req, res) => {
 router.post('/add', async (req, res) => {
     
     try {
-        const { email, phone, id:pid, address, password, price } = req.body;
+        const { email, phone, id:pid, address, password, price,name } = req.body;
         // console.log(req.body);
         // Validate required fields
         if (!email || !phone || !pid || !address || !password ) {
@@ -70,8 +70,8 @@ router.post('/add', async (req, res) => {
         }
 
         // Create new order
-        const newOrder = await new Orders({ email, phone, pid, address, password, price });
-        // console.log(newOrder);
+        const newOrder = await new Orders({ email, phone, pid, address, password, price,name });
+        console.log(newOrder);
         await newOrder.save();
 
         res.status(201).json(newOrder);

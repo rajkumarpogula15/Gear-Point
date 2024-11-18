@@ -9,9 +9,9 @@ const BikeCard = ({ name, price, brand, rating, img, id }) => {
   const handleBuyNowClick = () => {
     setShowOrderPopup(true); // Show the popup
   };
-  console.log(price);
-  console.log(id);
-  console.log(name)
+  // console.log(price);
+  // console.log(id);
+  // console.log(name)
   return (
     <motion.div
       variants={fadeIn("up", "spring", 0.5, 0.75)}
