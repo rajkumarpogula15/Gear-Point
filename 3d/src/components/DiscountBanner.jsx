@@ -8,7 +8,7 @@ const DiscountBanner = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowBanner(true);
-    }, 1000); // Show after 1 second
+    }, 10000); // Show after 1 second
 
     return () => clearTimeout(timer);
   }, []);
