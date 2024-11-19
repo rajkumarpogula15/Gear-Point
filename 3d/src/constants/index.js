@@ -29,6 +29,7 @@ import {
 import Umesh from '../assets/OurImages/umesh.jpg'
 import Rajkumar from '../assets/OurImages/raju.jpg'
 import meher from '../assets/OurImages/meher.jpg'
+import ramu from '../assets/OurImages/ramu.jpg'
 
   export const navLinks = [
     {
@@ -224,7 +225,7 @@ import meher from '../assets/OurImages/meher.jpg'
     {
       title: "Ramu Bollepali",
       company_name: "CSE",
-      icon: "https://randomuser.me/api/portraits/women/6.jpg",
+      icon: ramu,
       iconBg: "#E6DEDD",
       date: "22JJ1A0515",
       points: [
