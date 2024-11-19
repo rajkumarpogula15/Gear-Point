@@ -7,7 +7,6 @@ import HomeCarousel from '../../components/HomeCarousel';
 import ScrollingText from '../../components/ScrollingText';
 import DiscountBanner from "../../components/DiscountBanner";
 import Footer from '../../components/Footer';
-import UserNavBar from '../FUser/UserNavBar';
 import { motion } from 'framer-motion';
 import { fadeIn } from '../../utils/motion';  // Assuming fadeIn is defined in utils/motion.js
 
@@ -22,7 +21,7 @@ const UserBikes = () => {
         async function fetchData() {
             try {
                 const res = await getBikes();
-                console.log("API Response:", res); // Debugging line
+
 
                 if (res.status === 200 && Array.isArray(res.data)) {
                     setBikes(res.data);
