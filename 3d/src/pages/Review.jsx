@@ -1,6 +1,6 @@
 import React from 'react'
 import Footer from '../components/Footer'
-import { About,Contact,Experience,FeedbacksPage,Hero,Navbar,Tech,Works,StarsCanvas } from '../components'
+import { FeedbacksPage } from '../components'
 
 const Review = () => {
   return (

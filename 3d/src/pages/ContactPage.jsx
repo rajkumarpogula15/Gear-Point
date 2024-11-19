@@ -1,5 +1,5 @@
 
-import { About,Contact,Experience,Feedbacks,Hero,Navbar,Tech,Works,StarsCanvas } from '../components'
+import { Contact,StarsCanvas } from '../components'
 import Footer from '../components/Footer'
 // import { Navbar } from '../components'
 import React from 'react'

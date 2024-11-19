@@ -18,10 +18,8 @@ import UserHome from './pages/FUser/UserHome';
 import UserBikes from './pages/FUser/UserBikes';
 import UserAccessories from './pages/FUser/UserAccessories';
 import UserReviews from './pages/FUser/UserReviews';
-import UserContact from './pages/FUser/UserContact';
 import MyOrders from './pages/FUser/MyOrders';
 
-import UserDashboard from './pages/FUser/UserDashboard';
 import UserLayout from './layouts/UserLayout';
 
 import WebLayout from './layouts/WebLayout';
