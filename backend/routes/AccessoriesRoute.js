@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const Accessories = require('../models/AccessoriesModel'); // Updated model import to Accessories
-const validate = require('../config/auth'); // Assuming this is an authentication middleware
+const Accessories = require('../models/AccessoriesModel');
+const validate = require('../config/auth');
 
 // Method : GET || API : /accessories/all
 router.get('/all', async (req, res) => {
