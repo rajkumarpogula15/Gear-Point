@@ -179,7 +179,6 @@ import meher from '../assets/OurImages/meher.jpg'
   ];
   
   const experiences = [
-
     {
       title: "Umesh Bingi",
       company_name: "CSE",
@@ -187,10 +186,11 @@ import meher from '../assets/OurImages/meher.jpg'
       iconBg: "#E6DEDD",
       date: "22JJ1A0513",
       points: [
-        "Developing and maintaining web applications using React.js and other related technologies.",
-        "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-        "Implementing responsive design and ensuring cross-browser compatibility.",
-        "Participating in code reviews and providing constructive feedback to other developers.",
+        "Developed and maintained dynamic full-stack web applications using React.js, Node.js, and MongoDB.",
+        "Built scalable APIs and integrated them seamlessly with front-end components.",
+        "Designed and implemented responsive UI/UX for web applications, ensuring cross-browser compatibility.",
+        "Collaborated across teams to deliver robust, end-to-end solutions within deadlines.",
+        "Implemented version control and CI/CD pipelines to streamline development workflows.",
       ],
     },
     {
@@ -198,9 +198,13 @@ import meher from '../assets/OurImages/meher.jpg'
       company_name: "CSE",
       icon: meher,
       iconBg: "#E6DEDD",
-      date: "22JJ1A0536", // Add specific dates if available
+      date: "22JJ1A0536",
       points: [
-        "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
+        "Designed and implemented stunning 3D visuals and interactive elements using Three.js.",
+        "Enhanced user engagement by creating immersive web experiences with advanced 3D animations.",
+        "Collaborated with front-end developers to seamlessly integrate 3D features into web applications.",
+        "Optimized rendering performance to ensure smooth and responsive 3D interactions.",
+        "Kept up-to-date with the latest developments in WebGL and 3D web design technologies.",
       ],
     },
     {
@@ -208,9 +212,13 @@ import meher from '../assets/OurImages/meher.jpg'
       company_name: "CSE",
       icon: Rajkumar,
       iconBg: "#E6DEDD",
-      date: "22JJ1A0548", // Add specific dates if available
+      date: "22JJ1A0548",
       points: [
-        "I've never met a web developer who truly cares about their clients' success like Rick does.",
+        "Specialized in building scalable and efficient backend systems using Node.js and Express.",
+        "Designed and managed databases, ensuring data integrity and optimal performance.",
+        "Developed secure and RESTful APIs for seamless communication between systems.",
+        "Integrated third-party services and APIs to extend application functionality.",
+        "Continuously optimized server-side performance to handle high traffic and concurrent users.",
       ],
     },
     {
@@ -218,13 +226,17 @@ import meher from '../assets/OurImages/meher.jpg'
       company_name: "CSE",
       icon: "https://randomuser.me/api/portraits/women/6.jpg",
       iconBg: "#E6DEDD",
-      date: "22JJ1A0515", // Add specific dates if available
+      date: "22JJ1A0515",
       points: [
-        "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
+        "Implemented performance optimization strategies that increased website traffic by 50%.",
+        "Leveraged advanced analytics to understand user behavior and improve website engagement.",
+        "Developed SEO-friendly web solutions to boost search engine visibility.",
+        "Integrated third-party tools and APIs to enhance website functionality.",
+        "Conducted regular maintenance and updates to ensure website reliability and security.",
       ],
     },
-    
   ];
+  
 
   
   const testimonials = [
