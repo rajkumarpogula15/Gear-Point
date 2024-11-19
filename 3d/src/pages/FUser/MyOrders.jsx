@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import { getUserOrders,getOrders } from "../../api/api"; // Function to fetch user-specific orders
 
+
+import { motion } from "framer-motion"; // For animations
+import { Tilt } from "react-tilt";
+import { fadeIn, textVariant } from "../../utils/motion";
+
+
 const MyOrders = () => {
   const [email, setEmail] = useState(""); // Store entered email
   const [orders, setOrders] = useState([]);
@@ -90,6 +96,7 @@ const MyOrders = () => {
           ))}
         </div>
       )}
+
     </div>
   );
 };

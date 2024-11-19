@@ -109,22 +109,22 @@ const HomeCarousel = () => {
                 <div className="item">
                     <img src="../../src/assets/img-1.webp"/>
                     <div className="content">
-                        <div className="author">LUNDEV</div>
-                        <div className="title">DESIGN SLIDER</div>
-                        <div className="topic">meher</div>
+                        <div className="author">Yamaha</div>
+                        <div className="title">YZ250F</div>
+                        <div className="topic">Rs 7,59,000</div>
                         <div className="des">
-                            Lorem ipsum dolor, sit  amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde. Ut, exercitationem eum aperiam illo illum laudantium?
+                        Lighter, sharper handling, with an all-new frame, more compact body and improved smartphone tuneability, the new generation YZ250F is ready to continue a legacy of dominance in the 250 class.
                         </div>
                     </div>
                 </div>
                 <div className="item">
                     <img src="../../src/assets/img-2.jpg"/>
                     <div className="content">
-                        <div className="author">LUNDEV</div>
-                        <div className="title">DESIGN SLIDER</div>
-                        <div className="topic">raj</div>
+                        <div className="author">Royal Enfield</div>
+                        <div className="title">Hunter 350</div>
+                        <div className="topic">Rs 1,49,900</div>
                         <div className="des">
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde. Ut, exercitationem eum aperiam illo illum laudantium?
+                        This is the new Royal Enfield Hunter 350. It is accessible, affordable, and also customisable. Now the whole point of bringing a motorcycle like this to the Indian market is obviously to make a lot of money, but while doing so, also allows many Indians – college kids, working professionals, even senior citizens for that matter – to ride a motorcycle that is aspirational, stylish, and has a 350cc engine.   
                         </div>
 
                     </div>
@@ -132,11 +132,11 @@ const HomeCarousel = () => {
                 <div className="item">
                     <img src="../../src/assets/img-3.webp"/>
                     <div className="content">
-                        <div className="author">LUNDEV</div>
-                        <div className="title">DESIGN SLIDER</div>
-                        <div className="topic">umesh</div>
+                        <div className="author">TVS</div>
+                        <div className="title">Jupiter</div>
+                        <div className="topic">Rs 73,700</div>
                         <div className="des">
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde. Ut, exercitationem eum aperiam illo illum laudantium?
+                          For over a decade, the TVS Jupiter has been more than just a scooter; it's been a trusted companion to over 6.5 million Indians, embodying progress, personal growth, and a spirit of 'MORE'. We're thrilled to introduce the all-new TVS Jupiter 110 and usher in a new decade of ‘MORE’: with more style, more mileage, more performance, more comfort, more convenience, and more safety. Designed with your family in mind, every element of this new Jupiter is crafted to enhance your riding experience.
                         </div>
                     </div>
                 </div>
@@ -147,10 +147,10 @@ const HomeCarousel = () => {
                     <img src="../../src/assets/img-1.webp"className='h-[23vh]'/>
                     <div className="content">
                         <div className="title">
-                            Name Slider
+                          Yamaha
                         </div>
                         <div className="description">
-                            Description
+                          YZ250F
                         </div>
                     </div>
                 </div>
@@ -158,10 +158,10 @@ const HomeCarousel = () => {
                     <img src="../../src/assets/img-2.jpg"/>
                     <div className="content">
                         <div className="title">
-                            Name Slider
+                          Royal Enfield
                         </div>
                         <div className="description">
-                            Description
+                          Hunter 350
                         </div>
                     </div>
                 </div>
@@ -169,10 +169,10 @@ const HomeCarousel = () => {
                     <img src="../../src/assets/img-3.webp"/>
                     <div className="content">
                         <div className="title">
-                            Name Slider
+                          TVS
                         </div>
                         <div className="description">
-                            Description
+                          Jupiter
                         </div>
                     </div>
                 </div>
