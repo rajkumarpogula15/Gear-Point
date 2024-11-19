@@ -218,10 +218,3 @@ const RegisterModal = ({ onClose }) => {
 
 export { LoginModal, RegisterModal };
 
-
-
-
-
-
-
-
