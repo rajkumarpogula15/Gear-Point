@@ -64,10 +64,10 @@ import ramu from '../assets/OurImages/ramu.jpg'
         title: "BAJAJ", 
         icon: "https://bikes.tractorjunction.com/_next/image?url=https%3A%2F%2Fimages.tractorjunction.com%2Fbajaj_logo_90f8c408ec.webp%3Fformat%3Dwebp&w=128&q=75" 
       },
-      { 
-        title: "Honda", 
-        icon: "https://bikes.tractorjunction.com/_next/image?url=https%3A%2F%2Fimages.tractorjunction.com%2Fhonda_logo_35da40bf6a.webp%3Fformat%3Dwebp&w=128&q=75s" 
-      },
+      // { 
+      //   title: "Honda", 
+      //   icon: "https://bikes.tractorjunction.com/_next/image?url=https%3A%2F%2Fimages.tractorjunction.com%2Fhonda_logo_35da40bf6a.webp%3Fformat%3Dwebp&w=128&q=75s" 
+      // },
       { 
         title: "KTM", 
         icon: "https://bikes.tractorjunction.com/_next/image?url=https%3A%2F%2Fimages.tractorjunction.com%2Fktm_logo_0e091d1a54.webp%3Fformat%3Dwebp&w=128&q=75" 

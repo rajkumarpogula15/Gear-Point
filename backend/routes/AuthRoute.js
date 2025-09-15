@@ -1,74 +1,83 @@
-const express = require('express')
+// backend/routes/AuthRoute.js
+const express = require('express');
 const router = express.Router();
-const Users = require('../models/UsersModel')
-const bcrypt = require('bcrypt')
-const jwt = require('jsonwebtoken')
+const Users = require('../models/UsersModel');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
+const JWT_SECRET = process.env.JWT_SECRET || 'dev_secret';
+
+// ---------------- REGISTER ----------------
 router.post('/register', async (req, res) => {
-    try {
-        // const newuser = new Users(req.body)
-        const { name, email, phone, password } = req.body
-        if (!name || !email || !phone || !password) {
-            return res.status(401).json({ message: "All fields required" })
-        }
+  try {
+    const { name, email, phone, password } = req.body;
 
-        //TODO : Add User Email & Phone Validation
-
-        //Email
-        const exisitingemail = await Users.findOne({ email })
-        if (exisitingemail) {
-            return res.status(500).json({ message: `User with ${email} already exists !` })
-        }
-
-        //Phone
-        const exisitingphone = await Users.findOne({ phone })
-        if (exisitingphone) {
-            return res.status(500).json({ message: `User with ${phone} already exists !` })
-        }
-        const salt = await bcrypt.genSalt(10)
-        const hashedpassword = await bcrypt.hash(password, salt)
-        const newuser = new Users({
-            name,
-            email,
-            phone,
-            password: hashedpassword
-        })
-        await newuser.save()
-        return res.status(200).json(newuser)
-    } catch (error) {
-        return res.status(500).json({ message: error.message })
+    if (!name || !email || !password) {
+      return res.status(400).json({ message: 'Name, email & password required' });
     }
-})
 
+    const existing = await Users.findOne({ $or: [{ email }, { phone }] });
+    if (existing) {
+      return res.status(409).json({ message: 'User with that email or phone already exists' });
+    }
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    const newUser = await Users.create({
+      name,
+      email,
+      phone: phone || null,
+      password: hashedPassword,
+      role: req.body.role || 'user', // ✅ allow sending role manually
+    });
+
+    // ✅ Include email in JWT
+    const token = jwt.sign(
+      { id: newUser._id, email: newUser.email, role: newUser.role },
+      JWT_SECRET,
+      { expiresIn: '7d' }
+    );
+
+    res.status(201).json({
+      message: 'Registration successful',
+      token,
+      user: { id: newUser._id, name: newUser.name, email: newUser.email, role: newUser.role },
+    });
+  } catch (error) {
+    console.error('Register error:', error);
+    res.status(500).json({ message: 'Server error', error: error.message });
+  }
+});
+
+// ---------------- LOGIN ----------------
 router.post('/login', async (req, res) => {
-    try {
-        // const newuser = new Users(req.body)
-        const { email, password } = req.body
-        if (!email|| !password) {
-            return res.status(401).json({ message: "All fields required" })
-        }
+  try {
+    const { email, password } = req.body;
+    if (!email || !password)
+      return res.status(400).json({ message: 'Email and password required' });
 
-        //TODO : Add User Email & Phone Validation
+    const user = await Users.findOne({ email });
+    if (!user) return res.status(401).json({ message: 'Invalid credentials' });
 
-        //Email
-        const user = await Users.findOne({ email })
-        // console.log(user);
-        if (!user) {
-            return res.status(500).json({ message: `Invalid Email` })
-        }
-        console.log("Sucessfully email checked");
-        const checkpassword = await bcrypt.compare(password, user.password)
-        if (!checkpassword) {
-            return res.status(500).json({ message: `Invalid Password` })
-        }
-        // console.log("Sucessfully email checked");
-        //Generate JWT
-        // const secretkey = '1811321'
-        // const token = jwt.sign({ email: email, exp: Math.floor(Date.now() / 1000) + (60 * 60 * 24 * 7) }, secretkey)
-        return res.status(200).json({ message: "login success"})
-    } catch (error) {
-        return res.status(500).json({ message: error.message })
-    }
-})
+    const match = await bcrypt.compare(password, user.password);
+    if (!match) return res.status(401).json({ message: 'Invalid credentials' });
 
-module.exports = router
+    // ✅ Include email in JWT
+    const token = jwt.sign(
+      { id: user._id, email: user.email, role: user.role },
+      JWT_SECRET,
+      { expiresIn: '7d' }
+    );
+
+    res.status(200).json({
+      message: 'Login successful',
+      token,
+      user: { id: user._id, name: user.name, email: user.email, role: user.role },
+    });
+  } catch (error) {
+    console.error('Login error:', error);
+    res.status(500).json({ message: 'Server error', error: error.message });
+  }
+});
+
+module.exports = router;

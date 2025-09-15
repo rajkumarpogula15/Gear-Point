@@ -6,7 +6,7 @@ const HomeCards = () => {
     { id: 2, name: "Royal Enfield", logo: "https://bikes.tractorjunction.com/_next/image?url=https%3A%2F%2Fimages.tractorjunction.com%2Froyal_enfield_logo_631655f217.webp%3Fformat%3Dwebp&w=128&q=75" },
     { id: 3, name: "YAMAHA", logo: "https://bikes.tractorjunction.com/_next/image?url=https%3A%2F%2Fimages.tractorjunction.com%2Fyamaha_logo_fc48575aaf.webp%3Fformat%3Dwebp&w=128&q=75" },
     { id: 4, name: "BAJAJ", logo: "https://bikes.tractorjunction.com/_next/image?url=https%3A%2F%2Fimages.tractorjunction.com%2Fbajaj_logo_90f8c408ec.webp%3Fformat%3Dwebp&w=128&q=75" },
-    { id: 5, name: "Honda", logo: "https://bikes.tractorjunction.com/_next/image?url=https%3A%2F%2Fimages.tractorjunction.com%2Fhonda_logo_35da40bf6a.webp%3Fformat%3Dwebp&w=128&q=75s" },
+    // { id: 5, name: "Honda", logo: "https://bikes.tractorjunction.com/_next/image?url=https%3A%2F%2Fimages.tractorjunction.com%2Fhonda_logo_35da40bf6a.webp%3Fformat%3Dwebp&w=128&q=75s" },
     { id: 6, name: "KTM", logo: "https://bikes.tractorjunction.com/_next/image?url=https%3A%2F%2Fimages.tractorjunction.com%2Fktm_logo_0e091d1a54.webp%3Fformat%3Dwebp&w=128&q=75" },
     { id: 7, name: "Suzuki", logo: "https://bikes.tractorjunction.com/_next/image?url=https%3A%2F%2Fimages.tractorjunction.com%2Fsuzuki_logo_04f3a7e33c.webp%3Fformat%3Dwebp&w=128&q=75" },
     { id: 8, name: "BMW", logo: "https://bikes.tractorjunction.com/_next/image?url=https%3A%2F%2Fimages.tractorjunction.com%2Fbmw_logo_c1fdb44d9f.webp%3Fformat%3Dwebp&w=128&q=75" },

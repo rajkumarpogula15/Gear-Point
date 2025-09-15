@@ -1,81 +1,57 @@
-import React, { useState ,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { addOrder } from "../api/api";
 
 const OrderPopup = ({ bike, onClose }) => {
+  const token = localStorage.getItem("token");
+  const user = JSON.parse(localStorage.getItem("user")); // user saved during login
+
   const [formData, setFormData] = useState({
-    email: "",
     phone: "",
     address: "",
-    password: "",
     price: bike.price,
-    id: bike.id,
-    name:bike.name
+    pid: bike._id || bike.id, // ✅ Use _id if available
+    name: bike.name,
   });
 
   const [error, setError] = useState("");
+
   useEffect(() => {
     if (error) {
-      const timer = setTimeout(() => {
-        setError(null); // Clear the error after 2 seconds
-      }, 2000);
-
-      return () => clearTimeout(timer); // Cleanup timeout if the component unmounts or error changes
+      const timer = setTimeout(() => setError(null), 2500);
+      return () => clearTimeout(timer);
     }
   }, [error]);
 
-  const handleSubmit = async () => {
-    // Validate required fields
-    if (
-      !formData.email ||
-      !formData.phone ||
-      !formData.address ||
-      !formData.password
-    ) {
-      setError("All fields are required.");
-      return;
+  const validateInput = () => {
+    if (!formData.phone || !formData.address) {
+      setError("Phone and address are required.");
+      return false;
     }
+    if (!/^\d{10}$/.test(formData.phone)) {
+      setError("Phone must be 10 digits.");
+      return false;
+    }
+    return true;
+  };
+
+  const handleOrder = async () => {
+    if (!validateInput()) return;
 
     try {
-      // Mock API request
-      console.log("Order Data Submitted:", formData);
-      alert("Order placed successfully!");
-      onClose();
-    } catch (err) {
-      console.error("Order Submission Error:", err);
-      setError("Failed to place order. Please try again.");
-    }
-  };
-  const handleOrder = async () => {
-    try {
-      // Validate required fields
-     
-      if (!formData.email || !formData.phone || !formData.address ||!formData.id || !formData.password || !formData.price) {
-        setError("All fields are required.");
-        return;
-      }
-      // Make API request to submit the order
-      // --------------------------------------------
-      const response = await addOrder(formData);
-      console.log(response);
-      // const result = await JSON.stringify(response);
-      // console.log(result); 
-      // console.log(result.status);
+      console.log("Sending Order Data:", formData);
+
+      const response = await addOrder(formData, token); // ✅ Now token is passed in api.js
       if (response.status === 201) {
-        setError(" ");
         alert("Order placed successfully!");
-        
-        onClose(); // Close the popup
+        onClose();
       } else {
-        setError( response.data?.message ||"Failed to place order. Please try again.");
-        
+        setError(response.data?.message || "Failed to place order.");
       }
     } catch (err) {
       console.error("Order Submission Error:", err);
-      setError( err.response?.data?.message ||"An error occurred. Please try again.");
-      
+      setError(err.response?.data?.message || "An error occurred.");
     }
   };
-  
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
@@ -89,26 +65,18 @@ const OrderPopup = ({ bike, onClose }) => {
         <h2 className="text-2xl font-bold text-center text-gray-800 mb-4">
           Place Your Order
         </h2>
-        <h3 className="text-black text-lg flex flex-row justify-center pb-5 mt-[-10px] font-bold opacity-85">{`${formData.name}`}</h3>
+        <h3 className="text-black text-lg text-center font-semibold opacity-85 mb-4">
+          {formData.name}
+        </h3>
 
         <div className="space-y-4">
-          <input
-            type="email"
-            placeholder="Email"
-            value={formData.email}
-            onChange={(e) =>
-              setFormData({ ...formData, email: e.target.value })
-            }
-            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mt-[-10px]"
-          />
+          {/* ✅ Removed email field, not required now */}
           <input
             type="text"
             placeholder="Phone"
             value={formData.phone}
-            onChange={(e) =>
-              setFormData({ ...formData, phone: e.target.value })
-            }
-            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+            className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-green-500"
           />
           <textarea
             placeholder="Address"
@@ -116,19 +84,11 @@ const OrderPopup = ({ bike, onClose }) => {
             onChange={(e) =>
               setFormData({ ...formData, address: e.target.value })
             }
-            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            value={formData.password}
-            onChange={(e) =>
-              setFormData({ ...formData, password: e.target.value })
-            }
-            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-green-500"
           />
           {error && <p className="text-red-500 text-sm">{error}</p>}
         </div>
+
         <div className="mt-6 flex justify-between">
           <button
             onClick={onClose}

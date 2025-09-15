@@ -1,36 +1,13 @@
-const mongoose = require('mongoose')
+// backend/models/UsersModel.js
+const mongoose = require('mongoose');
 
 const UsersSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true
-    },
-    email: {
-        type: String,
-        required: true,
-        unique: true
-    },
-    phone: {
-        type: Number,  // Changed to String
-        required: true,
-        unique: true
-    },
-    password: {
-        type: String,
-        required: true,
-        minlength: 6 // Added minlength validation for password
-    },
-    address: {
-        type: String,
-        required: false,
-    },
-    role: {
-        type: String,
-        required: false,
-       
-    },
-})
+  name: { type: String, required: true },
+  email: { type: String, required: true, unique: true, lowercase: true, trim: true },
+  phone: { type: String, required: false, unique: true }, // string preserves leading zeros, +country etc.
+  password: { type: String, required: true }, // hashed password
+  address: { type: String, required: false },
+  role: { type: String, required: false, default: 'user' }
+}, { timestamps: true });
 
-const Users = mongoose.model("Users", UsersSchema)
-
-module.exports = Users
+module.exports = mongoose.model('Users', UsersSchema);
